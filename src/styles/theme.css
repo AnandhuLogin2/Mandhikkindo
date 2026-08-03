@@ -1,0 +1,377 @@
+/* =========================================================================
+   MANDHIKKINDO — MODERN SAAS / PREMIUM RESTAURANT DESIGN SYSTEM
+   Palette: Deep Charcoal + Rich Orange + Golden Yellow + Sleek Slate Glass
+   Typography: Poppins (Headings) + Inter (Body) + JetBrains Mono (Data)
+   ========================================================================= */
+
+:root {
+  /* ---- Core Color Palette ---- */
+  --primary: #111827;       /* Deep Charcoal */
+  --secondary: #F97316;     /* Rich Orange */
+  --accent: #FBBF24;        /* Golden Yellow */
+
+  --bg: #0F172A;            /* Slate 900 */
+  --bg-elevated: #1E293B;   /* Slate 800 */
+  --card-bg: #1E293B;
+
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-strong: rgba(255, 255, 255, 0.09);
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-glow: rgba(249, 115, 22, 0.35);
+
+  /* Text Colors */
+  --text: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-faint: rgba(148, 163, 184, 0.6);
+
+  /* Status Colors */
+  --success: #22C55E;
+  --danger: #EF4444;
+
+  /* Gradients */
+  --grad-1: linear-gradient(135deg, #F97316 0%, #FBBF24 100%);
+  --grad-2: linear-gradient(135deg, #FBBF24 0%, #22C55E 100%);
+  --grad-3: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+  --grad-dark: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, #0F172A 100%);
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+
+  /* Fonts */
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Border Radii */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Shadows & Glows */
+  --shadow-soft: 0 12px 32px -8px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 20px 48px -12px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 30px -5px rgba(249, 115, 22, 0.4);
+
+  /* Animations */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --primary: #FFFFFF;
+  --secondary: #F97316;
+  --accent: #D97706;
+
+  --bg: #F8FAFC;
+  --bg-elevated: #FFFFFF;
+  --card-bg: #FFFFFF;
+
+  --surface: rgba(15, 23, 42, 0.03);
+  --surface-strong: rgba(15, 23, 42, 0.06);
+  --glass: rgba(255, 255, 255, 0.75);
+  --glass-strong: rgba(255, 255, 255, 0.9);
+
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --border-glow: rgba(249, 115, 22, 0.4);
+
+  --text: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-faint: rgba(100, 116, 139, 0.7);
+
+  --shadow-soft: 0 12px 32px -8px rgba(15, 23, 42, 0.08);
+  --shadow-lift: 0 20px 48px -12px rgba(15, 23, 42, 0.14);
+  --shadow-glow: 0 0 30px -5px rgba(249, 115, 22, 0.25);
+
+  color-scheme: light;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.35s var(--ease-out), color 0.35s var(--ease-out);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; display: block; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+::selection {
+  background: var(--secondary);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* =========================================================================
+   GLASSMORPHIISM CARDS
+   ========================================================================= */
+.glass {
+  position: relative;
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.35s var(--ease-out);
+}
+
+.glass:hover {
+  border-color: var(--border-strong);
+}
+
+.glass-tight {
+  border-radius: var(--radius-md);
+}
+
+/* =========================================================================
+   LAYOUT & HEADINGS
+   ========================================================================= */
+.section {
+  position: relative;
+  padding: clamp(64px, 8vw, 120px) clamp(20px, 5vw, 64px);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.section-head {
+  max-width: 680px;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+.section-head.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 10px var(--secondary);
+}
+
+.section-title {
+  font-size: clamp(28px, 3.8vw, 46px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.section-sub {
+  margin-top: 14px;
+  font-size: 16.5px;
+  color: var(--text-muted);
+  max-width: 56ch;
+  line-height: 1.6;
+}
+
+.accent-text {
+  background: var(--grad-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+/* =========================================================================
+   BUTTON STYLES (Modern Glowing SaaS Style)
+   ========================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-out), background 0.3s, border-color 0.3s, color 0.3s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn.small {
+  padding: 9px 18px;
+  font-size: 13px;
+}
+
+/* Primary Button: Orange Gradient + Glow + Hover Lift */
+.btn-primary {
+  background: var(--grad-1);
+  color: #FFFFFF;
+  box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 36px -6px rgba(249, 115, 22, 0.65);
+}
+
+/* Secondary Button: Glass Style */
+.btn-ghost {
+  background: var(--surface-strong);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(12px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-outline:hover {
+  background: var(--surface-strong);
+  border-color: var(--secondary);
+  color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface-strong);
+  border: 1px solid var(--border-soft);
+  color: var(--text);
+  transition: all 0.25s var(--ease-out);
+}
+
+.icon-btn:hover {
+  background: var(--glass-strong);
+  border-color: var(--border-strong);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Chips */
+.chip {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.25s var(--ease-out);
+  cursor: pointer;
+}
+
+.chip:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+
+.chip.active {
+  background: var(--grad-1);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+}
+
+/* Scroll Animations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Focus Ring */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+  border-radius: 8px;
+}

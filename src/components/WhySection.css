@@ -1,0 +1,42 @@
+.neon-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:24px;
+}
+.neon-card-wrap{ position:relative; }
+.neon-glow{
+  position:absolute; inset:8px;
+  filter:blur(38px);
+  opacity:.25;
+  border-radius:var(--radius-lg);
+  z-index:0;
+  transition:opacity .4s;
+}
+.neon-card-wrap:hover .neon-glow{ opacity:.5; }
+
+.neon-card{
+  position:relative; z-index:1;
+  padding:32px 28px;
+  display:flex; flex-direction:column; gap:18px;
+  height:100%;
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s var(--ease-out), border-color 0.35s;
+}
+.neon-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+}
+.neon-icon{
+  width:50px; height:50px;
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--grad-1);
+  color:#FFFFFF;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+}
+.neon-icon svg{ width:24px; height:24px; }
+.neon-title{ font-family: var(--font-display); font-size:20px; font-weight:700; color: var(--text); }
+.neon-desc{ color:var(--text-secondary); font-size:14.5px; line-height:1.6; }

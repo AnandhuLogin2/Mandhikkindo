@@ -1,0 +1,42 @@
+.buddy-section {
+  padding-top: 40px;
+}
+
+.buddy-shell {
+  padding: clamp(32px, 5vw, 54px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+  border: 1px solid var(--border-glow);
+  box-shadow: 0 0 35px rgba(249, 115, 22, 0.15);
+}
+
+.buddy-text {
+  max-width: 580px;
+}
+
+.buddy-text .section-title {
+  margin-bottom: 8px;
+}
+
+.buddy-btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .buddy-shell {
+    flex-direction: column;
+    text-align: center;
+  }
+  .buddy-btn-row {
+    width: 100%;
+  }
+  .buddy-btn-row .btn {
+    width: 100%;
+  }
+}

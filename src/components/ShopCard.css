@@ -1,0 +1,123 @@
+.shop-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-out), border-color 0.35s;
+  cursor: pointer;
+}
+
+.shop-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift), 0 0 25px rgba(249, 115, 22, 0.2);
+  border-color: var(--border-glow);
+}
+
+.shop-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.shop-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: var(--grad-1);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+}
+
+.shop-card-top-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shop-card-fav {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  transition: transform 0.2s var(--ease-spring);
+}
+.shop-card-fav:hover {
+  transform: scale(1.25);
+}
+
+.shop-rating {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--surface-strong);
+  border: 1px solid var(--border-soft);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+.shop-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.shop-location {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.shop-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.shop-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-soft);
+}
+
+.shop-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-soft);
+}
+
+.shop-distance {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.shop-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.shop-card-actions .btn {
+  flex: 1;
+}

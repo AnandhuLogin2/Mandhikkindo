@@ -1,0 +1,71 @@
+.shops-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.shops-search {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.shops-search:focus-within {
+  border-color: var(--secondary);
+  box-shadow: 0 0 16px rgba(249, 115, 22, 0.2);
+}
+
+.shops-search span {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.shops-search input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  outline: none;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 32px;
+  scroll-behavior: smooth;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.shops-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-muted);
+  font-size: 16px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border-soft);
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 48px;
+}
