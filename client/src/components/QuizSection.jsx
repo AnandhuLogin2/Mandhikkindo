@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useShops } from "../hooks/useShops";
 import { useApp } from "../context/AppContext";
+import { useAuth } from "../context/AuthContext";
 import { useCommunity } from "../hooks/useCommunity";
 import "./QuizSection.css";
 
@@ -67,7 +69,10 @@ function computeMatches(shops, answers) {
 export default function QuizSection() {
   const { shops, districts } = useShops();
   const { openCommunity, openShopDetail, playSizzle } = useApp();
+  const { user } = useAuth();
   const { groups } = useCommunity(shops);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const questions = useMemo(
     () => [
@@ -104,6 +109,16 @@ export default function QuizSection() {
         playSizzle();
       }
     }, 220);
+  };
+
+  const handleCreateGroupFromQuiz = (shopName) => {
+    if (!user) {
+      navigate("/login", {
+        state: { from: location, reason: "Sign in to create a Mandhi group" },
+      });
+    } else {
+      openCommunity("create", shopName);
+    }
   };
 
   const matches = stage === "results" ? computeMatches(shops, answers) : [];
@@ -213,7 +228,7 @@ export default function QuizSection() {
                 </button>
                 <button
                   className="btn btn-ghost small"
-                  onClick={() => openCommunity("create", matches[0]?.name)}
+                  onClick={() => handleCreateGroupFromQuiz(matches[0]?.name)}
                 >
                   Create a Mandhi Group
                 </button>
@@ -223,7 +238,7 @@ export default function QuizSection() {
                 {groups.slice(0, 3).map((g) => (
                   <div className="quiz-group-chip" key={g.id} onClick={() => openCommunity("browse")}>
                     <span>{g.restaurant}</span>
-                    <span className="quiz-group-meta">{g.date} · {g.members}/{g.max}</span>
+                    <span className="quiz-group-meta">{g.date} · {(Array.isArray(g.members) ? g.members.length : g.members || 1)}/{g.max}</span>
                   </div>
                 ))}
               </div>

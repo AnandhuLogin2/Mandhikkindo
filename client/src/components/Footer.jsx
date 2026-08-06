@@ -36,7 +36,6 @@ export default function Footer() {
           <a href="#trending">Trending Shops</a>
           <a href="#categories">Categories</a>
           <a href="#interrogation">Take the Quiz</a>
-          <a href="#gallery">Gallery</a>
         </div>
 
         <div className="footer-col">

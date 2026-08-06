@@ -1,98 +1,171 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
+import { io } from "socket.io-client";
+import { api } from "../lib/api";
+import { useAuth } from "../context/AuthContext";
 
-const KEY = "mk-community-groups-v1";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
 
-const SEED_MESSAGES = [
-  "Anyone up for Chicken Mandhi tonight? Table for 4 booked.",
-  "Craving Beef Mandhi this weekend, join if you're free!",
-  "First-timer trying mandhi, would love some company.",
-  "Regular Friday mandhi crew — always room for one more.",
-];
-
-function seedGroups(shops) {
-  if (!shops.length) return [];
-  const now = Date.now();
-  const picks = [...shops].sort((a, b) => b.reviews - a.reviews).slice(0, 6);
-  return picks.map((shop, i) => {
-    const daysAhead = [0, 1, 2, 3, 5, 6][i % 6];
-    const date = new Date(now + daysAhead * 86400000);
-    return {
-      id: `seed-${shop.id}`,
-      restaurant: shop.name,
-      district: shop.district,
-      date: date.toISOString().slice(0, 10),
-      time: ["19:00", "13:30", "20:00", "12:30", "19:30", "18:00"][i % 6],
-      max: [4, 6, 3, 5, 4, 8][i % 6],
-      members: 1 + (i % 3),
-      message: SEED_MESSAGES[i % SEED_MESSAGES.length],
-      category: (shop.types && shop.types[0]) || "Chicken Mandhi",
-      host: ["Anoop", "Fathima", "Rahul", "Meera", "Sabith", "Aleena"][i % 6],
-      createdAt: now - i * 100000,
-      messages: [],
-    };
-  });
-}
-
-export function useCommunity(shops) {
+export function useCommunity(shops = []) {
+  const { user } = useAuth();
   const [groups, setGroups] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [messages, setMessages] = useState({}); // groupId -> array of messages
 
-  useEffect(() => {
+  const socketRef = useRef(null);
+
+  // Fetch groups list from backend REST API
+  const fetchGroups = useCallback(async () => {
     try {
-      const raw = localStorage.getItem(KEY);
-      if (raw) {
-        setGroups(JSON.parse(raw));
-      } else {
-        const seed = seedGroups(shops);
-        setGroups(seed);
-        localStorage.setItem(KEY, JSON.stringify(seed));
+      setLoading(true);
+      const res = await api.get("/api/groups");
+      if (res?.data) {
+        setGroups(res.data);
       }
-    } catch {
-      setGroups(seedGroups(shops));
+    } catch (err) {
+      console.warn("Failed to fetch groups from server (falling back):", err.message);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shops.length]);
-
-  const persist = useCallback((next) => {
-    setGroups(next);
-    localStorage.setItem(KEY, JSON.stringify(next));
   }, []);
 
+  useEffect(() => {
+    fetchGroups();
+  }, [fetchGroups]);
+
+  // Socket.io initialization when user is authenticated
+  useEffect(() => {
+    if (!user) return;
+
+    let socket;
+    user.getIdToken().then((token) => {
+      socket = io(API_BASE_URL, {
+        auth: { token },
+        transports: ["websocket", "polling"],
+      });
+
+      socketRef.current = socket;
+
+      socket.on("connect", () => {
+        console.log("⚡ Socket.io connected for user:", user.uid);
+      });
+
+      socket.on("group:message", (message) => {
+        if (message && message.groupId) {
+          setMessages((prev) => ({
+            ...prev,
+            [message.groupId]: [...(prev[message.groupId] || []), message],
+          }));
+        }
+      });
+
+      socket.on("disconnect", () => {
+        console.log("⚡ Socket.io disconnected");
+      });
+    }).catch(console.error);
+
+    return () => {
+      if (socket) socket.disconnect();
+    };
+  }, [user]);
+
+  // Create a new group via backend REST API
   const createGroup = useCallback(
-    (group) => {
-      const newGroup = {
-        id: `g-${Date.now()}`,
-        members: 1,
-        messages: [],
-        createdAt: Date.now(),
-        ...group,
-      };
-      persist([newGroup, ...groups]);
-      return newGroup;
+    async (groupData) => {
+      if (!user) {
+        throw new Error("Must be logged in to create a group");
+      }
+      try {
+        const res = await api.post("/api/groups", groupData, user);
+        const newGroup = res.data;
+        setGroups((prev) => [newGroup, ...prev]);
+        return newGroup;
+      } catch (err) {
+        console.error("Create group failed:", err);
+        throw err;
+      }
     },
-    [groups, persist]
+    [user]
   );
 
+  // Join group via backend REST API
   const joinGroup = useCallback(
-    (id) => {
-      const next = groups.map((g) =>
-        g.id === id && g.members < g.max ? { ...g, members: g.members + 1 } : g
-      );
-      persist(next);
+    async (groupId) => {
+      if (!user) {
+        throw new Error("Must be logged in to join a group");
+      }
+      try {
+        const res = await api.post(`/api/groups/${groupId}/join`, {}, user);
+        const updatedGroup = res.data;
+        setGroups((prev) =>
+          prev.map((g) => (g.id === groupId ? updatedGroup : g))
+        );
+        return updatedGroup;
+      } catch (err) {
+        console.error("Join group failed:", err);
+        throw err;
+      }
     },
-    [groups, persist]
+    [user]
   );
 
+  // Leave group via backend REST API
+  const leaveGroup = useCallback(
+    async (groupId) => {
+      if (!user) {
+        throw new Error("Must be logged in to leave a group");
+      }
+      try {
+        const res = await api.post(`/api/groups/${groupId}/leave`, {}, user);
+        const updatedGroup = res.data;
+        setGroups((prev) =>
+          prev.map((g) => (g.id === groupId ? updatedGroup : g))
+        );
+        return updatedGroup;
+      } catch (err) {
+        console.error("Leave group failed:", err);
+        throw err;
+      }
+    },
+    [user]
+  );
+
+  // Send message via Socket.io or REST
   const addMessage = useCallback(
-    (id, text, author = "You") => {
-      const next = groups.map((g) =>
-        g.id === id
-          ? { ...g, messages: [...(g.messages || []), { text, author, at: Date.now() }] }
-          : g
-      );
-      persist(next);
+    async (groupId, text) => {
+      if (!user) return;
+
+      if (socketRef.current && socketRef.current.connected) {
+        socketRef.current.emit("group:message", { groupId, text });
+      } else {
+        // Fallback local state if socket not ready
+        const localMsg = {
+          id: `msg-${Date.now()}`,
+          groupId,
+          text,
+          authorUid: user.uid,
+          authorName: user.displayName || "You",
+          createdAt: new Date().toISOString(),
+        };
+        setMessages((prev) => ({
+          ...prev,
+          [groupId]: [...(prev[groupId] || []), localMsg],
+        }));
+      }
     },
-    [groups, persist]
+    [user]
   );
 
-  return { groups, createGroup, joinGroup, addMessage };
+  return {
+    groups,
+    loading,
+    error,
+    messages,
+    fetchGroups,
+    createGroup,
+    joinGroup,
+    leaveGroup,
+    addMessage,
+  };
 }

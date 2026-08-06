@@ -4,14 +4,6 @@ import { useCommunity } from "../hooks/useCommunity";
 import { useApp } from "../context/AppContext";
 import "./SearchModal.css";
 
-const GALLERY_ITEMS = [
-  { id: "g1", title: "Traditional Underground Clay Pit (Kuzhi)", category: "Pit Cooking" },
-  { id: "g2", title: "Smoky Alfaham Roast Mandhi", category: "Alfaham" },
-  { id: "g3", title: "Slow-Cooked Tender Beef Mandhi", category: "Beef" },
-  { id: "g4", title: "Saffron Spiced Basmati & Hot Sahawiq Chutney", category: "Sides" },
-  { id: "g5", title: "Royal Mutton Mandhi Platter", category: "Mutton" },
-];
-
 const REVIEWS_ITEMS = [
   { id: "r1", name: "Anoop", shop: "Mandi Manzil", text: "The rice alone is worth the drive. Meat fell right off the bone." },
   { id: "r2", name: "Fathima", shop: "Zauq Mandi", text: "Portion sizes are unreal — came for lunch, left with dinner too." },
@@ -34,7 +26,7 @@ export default function SearchModal() {
   }, [searchOpen, setSearchOpen]);
 
   const searchResults = useMemo(() => {
-    if (!query.trim()) return { shops: [], community: [], reviews: [], gallery: [] };
+    if (!query.trim()) return { shops: [], community: [], reviews: [] };
     const q = query.trim().toLowerCase();
 
     // 1. Search Shops
@@ -63,16 +55,10 @@ export default function SearchModal() {
         r.text.toLowerCase().includes(q)
     );
 
-    // 4. Search Gallery
-    const galleryList = GALLERY_ITEMS.filter(
-      (g) => g.title.toLowerCase().includes(q) || g.category.toLowerCase().includes(q)
-    );
-
     return {
       shops: shopList.slice(0, 5),
       community: communityList.slice(0, 3),
       reviews: reviewList.slice(0, 3),
-      gallery: galleryList.slice(0, 3),
     };
   }, [query, shops, groups, userLoc]);
 
@@ -87,8 +73,7 @@ export default function SearchModal() {
   const totalHits =
     searchResults.shops.length +
     searchResults.community.length +
-    searchResults.reviews.length +
-    searchResults.gallery.length;
+    searchResults.reviews.length;
 
   if (!searchOpen) return null;
 
@@ -101,7 +86,7 @@ export default function SearchModal() {
           <input
             type="text"
             autoFocus
-            placeholder="Search across Community, Reviews, Gallery, Mandhi Shops & Quiz..."
+            placeholder="Search across Community, Reviews, Mandhi Shops & Quiz..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -157,22 +142,25 @@ export default function SearchModal() {
             <div className="sm-section">
               <h4 className="sm-section-label">👥 Community Meetups ({searchResults.community.length})</h4>
               <div className="sm-items-grid">
-                {searchResults.community.map((g) => (
-                  <div
-                    key={g.id}
-                    className="sm-item-card glass glass-tight"
-                    onClick={() => {
-                      setSearchOpen(false);
-                      openCommunity("browse");
-                    }}
-                  >
-                    <div>
-                      <strong className="sm-title">{g.restaurant}</strong>
-                      <span className="sm-sub">{g.district} · Host: {g.host}</span>
+                {searchResults.community.map((g) => {
+                  const memberCount = Array.isArray(g.members) ? g.members.length : g.members || 1;
+                  return (
+                    <div
+                      key={g.id}
+                      className="sm-item-card glass glass-tight"
+                      onClick={() => {
+                        setSearchOpen(false);
+                        openCommunity("browse");
+                      }}
+                    >
+                      <div>
+                        <strong className="sm-title">{g.restaurant}</strong>
+                        <span className="sm-sub">{g.district}</span>
+                      </div>
+                      <span className="sm-badge">{memberCount}/{g.max} Joined</span>
                     </div>
-                    <span className="sm-badge">{g.members}/{g.max} Joined</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
@@ -189,23 +177,6 @@ export default function SearchModal() {
                       <p className="sm-quote">"{r.text}"</p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* 4. Gallery */}
-          {searchResults.gallery.length > 0 && (
-            <div className="sm-section">
-              <h4 className="sm-section-label">🖼️ Gallery Highlights ({searchResults.gallery.length})</h4>
-              <div className="sm-items-grid">
-                {searchResults.gallery.map((g) => (
-                  <a key={g.id} href="#gallery" className="sm-item-card glass glass-tight" onClick={() => setSearchOpen(false)}>
-                    <div>
-                      <strong className="sm-title">{g.title}</strong>
-                      <span className="sm-sub">{g.category}</span>
-                    </div>
-                  </a>
                 ))}
               </div>
             </div>

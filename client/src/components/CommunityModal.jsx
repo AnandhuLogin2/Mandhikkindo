@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useApp } from "../context/AppContext";
+import { useAuth } from "../context/AuthContext";
 import { useShops } from "../hooks/useShops";
 import { useCommunity } from "../hooks/useCommunity";
 import "./CommunityModal.css";
@@ -10,8 +12,12 @@ export default function CommunityModal() {
     communityTab, setCommunityTab,
     prefillShop, showToast,
   } = useApp();
+  const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { shops, districts } = useShops();
-  const { groups, createGroup, joinGroup, addMessage } = useCommunity(shops);
+  const { groups, messages, createGroup, joinGroup, addMessage } = useCommunity(shops);
 
   const [detailId, setDetailId] = useState(null);
   const [search, setSearch] = useState("");
@@ -32,6 +38,17 @@ export default function CommunityModal() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [setCommunityOpen]);
+
+  const requireAuthAndAct = (actionFn, reason = "Sign in to continue") => {
+    if (!user) {
+      setCommunityOpen(false);
+      navigate("/login", {
+        state: { from: location, reason },
+      });
+      return false;
+    }
+    return actionFn();
+  };
 
   const filteredGroups = useMemo(() => {
     let list = [...groups];
@@ -73,7 +90,12 @@ export default function CommunityModal() {
             </button>
             <button
               className={`community-tab ${communityTab === "create" ? "active" : ""}`}
-              onClick={() => { setCommunityTab("create"); setDetailId(null); }}
+              onClick={() => {
+                requireAuthAndAct(() => {
+                  setCommunityTab("create");
+                  setDetailId(null);
+                }, "Sign in to create a Mandhi Buddy group");
+              }}
             >
               Create Group
             </button>
@@ -84,9 +106,23 @@ export default function CommunityModal() {
         {detailId && detailGroup ? (
           <GroupDetail
             group={detailGroup}
+            messages={messages[detailGroup.id] || detailGroup.messages || []}
             onBack={() => setDetailId(null)}
-            onJoin={() => { joinGroup(detailGroup.id); showToast(`Joined ${detailGroup.restaurant}'s group.`); }}
-            onSend={(text) => addMessage(detailGroup.id, text)}
+            onJoin={() => {
+              requireAuthAndAct(async () => {
+                try {
+                  await joinGroup(detailGroup.id);
+                  showToast(`Joined ${detailGroup.restaurant}'s group! 🎉`);
+                } catch (err) {
+                  showToast(err.message || "Failed to join group.");
+                }
+              }, "Sign in to join this Mandhi Buddy group");
+            }}
+            onSend={(text) => {
+              requireAuthAndAct(() => {
+                addMessage(detailGroup.id, text);
+              }, "Sign in to chat with group members");
+            }}
           />
         ) : communityTab === "browse" ? (
           <BrowsePanel
@@ -102,10 +138,15 @@ export default function CommunityModal() {
             shops={shops}
             districts={districts}
             prefillShop={prefillShop}
-            onCreate={(group) => {
-              const g = createGroup(group);
-              showToast("Mandhi group created!");
-              setDetailId(g.id);
+            onCreate={async (group) => {
+              try {
+                const g = await createGroup(group);
+                showToast("Mandhi group created successfully!");
+                setDetailId(g.id);
+                setCommunityTab("browse");
+              } catch (err) {
+                showToast(err.message || "Failed to create group.");
+              }
             }}
           />
         )}
@@ -154,18 +195,21 @@ function BrowsePanel({ groups, districts, search, setSearch, districtFilter, set
 
       {groups.length ? (
         <div className="community-grid">
-          {groups.map((g) => (
-            <button className="community-card" key={g.id} onClick={() => onOpen(g)}>
-              <div className="cc-top">
-                <span className="cc-restaurant">{g.restaurant}</span>
-                <span className="cc-members">{g.members}/{g.max}</span>
-              </div>
-              <span className="cc-district">{g.district}</span>
-              <span className="cc-when">{formatDate(g.date)} · {g.time}</span>
-              <span className="cc-category">{g.category}</span>
-              {g.message && <p className="cc-message">"{g.message}"</p>}
-            </button>
-          ))}
+          {groups.map((g) => {
+            const memberCount = Array.isArray(g.members) ? g.members.length : g.members || 1;
+            return (
+              <button className="community-card" key={g.id} onClick={() => onOpen(g)}>
+                <div className="cc-top">
+                  <span className="cc-restaurant">{g.restaurant}</span>
+                  <span className="cc-members">{memberCount}/{g.max}</span>
+                </div>
+                <span className="cc-district">{g.district}</span>
+                <span className="cc-when">{formatDate(g.date)} · {g.time}</span>
+                <span className="cc-category">{g.category}</span>
+                {g.message && <p className="cc-message">"{g.message}"</p>}
+              </button>
+            );
+          })}
         </div>
       ) : (
         <p className="community-empty">No groups match those filters yet — be the first to create one.</p>
@@ -196,13 +240,13 @@ function CreatePanel({ shops, districts, prefillShop, onCreate }) {
     const shop = shops.find((s) => s.name === restaurant);
     onCreate({
       restaurant,
+      shopId: shop ? shop.id : null,
       district,
       date,
       time,
       max: Number(max),
       message,
       category: shop?.types?.[0] || "Chicken Mandhi",
-      host: "You",
     });
   };
 
@@ -273,9 +317,10 @@ function CreatePanel({ shops, districts, prefillShop, onCreate }) {
   );
 }
 
-function GroupDetail({ group, onBack, onJoin, onSend }) {
+function GroupDetail({ group, messages, onBack, onJoin, onSend }) {
   const [text, setText] = useState("");
-  const full = group.members >= group.max;
+  const memberCount = Array.isArray(group.members) ? group.members.length : group.members || 1;
+  const full = memberCount >= group.max;
 
   return (
     <div className="community-panel active">
@@ -285,8 +330,7 @@ function GroupDetail({ group, onBack, onJoin, onSend }) {
         <p className="detail-sub">{group.district} · {formatDate(group.date)} at {group.time}</p>
         <div className="detail-meta-row">
           <span className="detail-tag">{group.category}</span>
-          <span className="detail-tag">{group.members}/{group.max} joined</span>
-          <span className="detail-tag">Hosted by {group.host}</span>
+          <span className="detail-tag">{memberCount}/{group.max} joined</span>
         </div>
         {group.message && <p className="detail-message">"{group.message}"</p>}
 
@@ -297,12 +341,12 @@ function GroupDetail({ group, onBack, onJoin, onSend }) {
         <div className="detail-chat">
           <h4>Group chat</h4>
           <div className="detail-chat-list">
-            {(group.messages || []).length === 0 && (
+            {messages.length === 0 && (
               <p className="detail-chat-empty">No messages yet — say hi!</p>
             )}
-            {(group.messages || []).map((m, i) => (
+            {messages.map((m, i) => (
               <div className="detail-chat-msg" key={i}>
-                <strong>{m.author}:</strong> {m.text}
+                <strong>{m.authorName || m.author || "Member"}:</strong> {m.text}
               </div>
             ))}
           </div>

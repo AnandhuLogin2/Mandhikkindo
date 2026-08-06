@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import { useReveal } from "./hooks/useReveal";
 
@@ -12,7 +14,6 @@ import WhySection from "./components/WhySection";
 import QuizSection from "./components/QuizSection";
 import ReviewsSection from "./components/ReviewsSection";
 import StatsSection from "./components/StatsSection";
-import GallerySection from "./components/GallerySection";
 import Footer from "./components/Footer";
 import Fabs from "./components/Fabs";
 import SearchModal from "./components/SearchModal";
@@ -22,8 +23,27 @@ import CartModal from "./components/CartModal";
 import AiBuddyDrawer from "./components/AiBuddyDrawer";
 import Toast from "./components/Toast";
 
-function PageContent() {
+import LoginPage from "./pages/LoginPage";
+import NotFoundPage from "./pages/NotFoundPage";
+
+function MainPageContent() {
   useReveal();
+  const location = useLocation();
+
+  // Scroll to anchor ID when location hash changes or on mount
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [location]);
 
   return (
     <>
@@ -39,7 +59,6 @@ function PageContent() {
         <QuizSection />
         <ReviewsSection />
         <StatsSection />
-        <GallerySection />
       </main>
       <Footer />
       <Fabs />
@@ -56,7 +75,11 @@ function PageContent() {
 export default function App() {
   return (
     <AppProvider>
-      <PageContent />
+      <Routes>
+        <Route path="/" element={<MainPageContent />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </AppProvider>
   );
 }

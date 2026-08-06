@@ -1,8 +1,23 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { useApp } from "../context/AppContext";
+import { useAuth } from "../context/AuthContext";
 import "./BuddySection.css";
 
 export default function BuddySection() {
   const { openCommunity } = useApp();
+  const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleCreateGroup = () => {
+    if (!user) {
+      navigate("/login", {
+        state: { from: location, reason: "Sign in to create a Mandhi group" },
+      });
+    } else {
+      openCommunity("create");
+    }
+  };
 
   return (
     <section className="section buddy-section" id="buddy">
@@ -15,7 +30,7 @@ export default function BuddySection() {
           </p>
         </div>
         <div className="buddy-btn-row">
-          <button className="btn btn-primary" onClick={() => openCommunity("create")}>
+          <button className="btn btn-primary" onClick={handleCreateGroup}>
             Create a Mandhi Group
           </button>
           <button className="btn btn-ghost" onClick={() => openCommunity("browse")}>
