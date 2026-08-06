@@ -1,0 +1,2322 @@
+[
+  {
+    "id": "thi-01",
+    "name": "Zauq Mandi",
+    "district": "Thiruvananthapuram",
+    "location": "Manacaud, Thiruvananthapuram",
+    "rating": 4.5,
+    "reviews": 338,
+    "lat": 8.5153,
+    "lng": 76.9368,
+    "address": "Manacaud, Thiruvananthapuram",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "thi-02",
+    "name": "Mandi Manzil (Technopark)",
+    "district": "Thiruvananthapuram",
+    "location": "Kazhakkoottam, Thiruvananthapuram",
+    "rating": 4.3,
+    "reviews": 5135,
+    "lat": 8.5738,
+    "lng": 76.9427,
+    "address": "Kazhakkoottam, Thiruvananthapuram",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "thi-03",
+    "name": "Mandi Manzil",
+    "district": "Thiruvananthapuram",
+    "location": "Mettukada Jn, Thiruvananthapuram",
+    "rating": 4.3,
+    "reviews": 2232,
+    "lat": 8.5407,
+    "lng": 76.9782,
+    "address": "Mettukada Jn, Thiruvananthapuram",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thi-04",
+    "name": "Mandi Manzil Ulloor",
+    "district": "Thiruvananthapuram",
+    "location": "Ulloor Rd, Thiruvananthapuram",
+    "rating": 4.3,
+    "reviews": 1342,
+    "lat": 8.4754,
+    "lng": 76.9458,
+    "address": "Ulloor Rd, Thiruvananthapuram",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thi-05",
+    "name": "Khalifa Mandi",
+    "district": "Thiruvananthapuram",
+    "location": "Attakkulangara-Killippalam Bypass Rd, Chalai",
+    "rating": 4.3,
+    "reviews": 1604,
+    "lat": 8.5295,
+    "lng": 76.9142,
+    "address": "Attakkulangara-Killippalam Bypass Rd, Chalai",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thi-06",
+    "name": "Burj Al Mandi Restaurant",
+    "district": "Thiruvananthapuram",
+    "location": "Attakulangara, Thiruvananthapuram",
+    "rating": 4.2,
+    "reviews": 5685,
+    "lat": 8.4892,
+    "lng": 76.9194,
+    "address": "Attakulangara, Thiruvananthapuram",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "thi-07",
+    "name": "Irani Kuzhi Mandi",
+    "district": "Thiruvananthapuram",
+    "location": "Karamana, Thiruvananthapuram",
+    "rating": 3.9,
+    "reviews": 2607,
+    "lat": 8.4951,
+    "lng": 76.9398,
+    "address": "Karamana, Thiruvananthapuram",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "thi-08",
+    "name": "Irani Kuzhimandi Restaurant",
+    "district": "Thiruvananthapuram",
+    "location": "Nanthancodu, Thiruvananthapuram",
+    "rating": 3.9,
+    "reviews": 1438,
+    "lat": 8.5273,
+    "lng": 76.9051,
+    "address": "Nanthancodu, Thiruvananthapuram",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "thi-09",
+    "name": "Alif Mandi House",
+    "district": "Thiruvananthapuram",
+    "location": "Kulathoor, Thiruvananthapuram",
+    "rating": 3.8,
+    "reviews": 2088,
+    "lat": 8.503,
+    "lng": 76.9097,
+    "address": "Kulathoor, Thiruvananthapuram",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thi-10",
+    "name": "Sahabi Kuzhimandi",
+    "district": "Thiruvananthapuram",
+    "location": "Kattaikonam, Thiruvananthapuram",
+    "rating": 3.4,
+    "reviews": 73,
+    "lat": 8.5126,
+    "lng": 76.9094,
+    "address": "Kattaikonam, Thiruvananthapuram",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thi-11",
+    "name": "Mandi King",
+    "district": "Thiruvananthapuram",
+    "location": "Kazhakkoottam, Thiruvananthapuram",
+    "rating": 2.8,
+    "reviews": 239,
+    "lat": 8.5352,
+    "lng": 76.9578,
+    "address": "Kazhakkoottam, Thiruvananthapuram",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-01",
+    "name": "Kaifan Kuzhimanthi",
+    "district": "Kollam",
+    "location": "Randamkutty, Kollam",
+    "rating": 4.5,
+    "reviews": 898,
+    "lat": 8.9339,
+    "lng": 76.6578,
+    "address": "Randamkutty, Kollam",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kol-02",
+    "name": "Le Taizz & Mehab al Mandi",
+    "district": "Kollam",
+    "location": "Pallimukku, Kollam",
+    "rating": 4.5,
+    "reviews": 242,
+    "lat": 8.9009,
+    "lng": 76.5892,
+    "address": "Pallimukku, Kollam",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "kol-03",
+    "name": "Elaf Mandi Restaurant",
+    "district": "Kollam",
+    "location": "Chinnakada, Kollam",
+    "rating": 4.4,
+    "reviews": 30,
+    "lat": 8.8944,
+    "lng": 76.6018,
+    "address": "Chinnakada, Kollam",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kol-04",
+    "name": "Mandi Manzil",
+    "district": "Kollam",
+    "location": "Kadapakkada, Kollam",
+    "rating": 4.3,
+    "reviews": 3111,
+    "lat": 8.8762,
+    "lng": 76.5986,
+    "address": "Kadapakkada, Kollam",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-05",
+    "name": "Mandi Manzil Restaurant",
+    "district": "Kollam",
+    "location": "Mayyanad, Kollam",
+    "rating": 4.3,
+    "reviews": 1390,
+    "lat": 8.907,
+    "lng": 76.5701,
+    "address": "Mayyanad, Kollam",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-06",
+    "name": "Taaif Kuzhimandi Restaurant",
+    "district": "Kollam",
+    "location": "Thrikkovilvattom, Kollam",
+    "rating": 4.1,
+    "reviews": 239,
+    "lat": 8.9076,
+    "lng": 76.6317,
+    "address": "Thrikkovilvattom, Kollam",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-07",
+    "name": "Afghan Mandi",
+    "district": "Kollam",
+    "location": "Kureepuzha, Kollam",
+    "rating": 4.1,
+    "reviews": 1068,
+    "lat": 8.9031,
+    "lng": 76.645,
+    "address": "Kureepuzha, Kollam",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kol-08",
+    "name": "Taizz Mandi",
+    "district": "Kollam",
+    "location": "Polayathodu, Kollam",
+    "rating": 4.1,
+    "reviews": 406,
+    "lat": 8.9004,
+    "lng": 76.6343,
+    "address": "Polayathodu, Kollam",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "kol-09",
+    "name": "Zamar Mandhi Restaurant",
+    "district": "Kollam",
+    "location": "Kallumthazham, Kollam",
+    "rating": 4.0,
+    "reviews": 1010,
+    "lat": 8.9184,
+    "lng": 76.5953,
+    "address": "Kallumthazham, Kollam",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kol-10",
+    "name": "Al Sheba Kuzhimanthi",
+    "district": "Kollam",
+    "location": "Thattamala, Kollam",
+    "rating": 4.0,
+    "reviews": 2589,
+    "lat": 8.8926,
+    "lng": 76.6082,
+    "address": "Thattamala, Kollam",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-11",
+    "name": "Taam",
+    "district": "Kollam",
+    "location": "Randamkutty, Kollam",
+    "rating": 3.7,
+    "reviews": 316,
+    "lat": 8.9179,
+    "lng": 76.6357,
+    "address": "Randamkutty, Kollam",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-12",
+    "name": "Makhdum Mandi",
+    "district": "Kollam",
+    "location": "Pallimukku, Kollam",
+    "rating": 3.7,
+    "reviews": 45,
+    "lat": 8.9248,
+    "lng": 76.6475,
+    "address": "Pallimukku, Kollam",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kol-13",
+    "name": "Rahath Mandi House",
+    "district": "Kollam",
+    "location": "Thamarakulam, Kollam",
+    "rating": 3.5,
+    "reviews": 2543,
+    "lat": 8.9008,
+    "lng": 76.5736,
+    "address": "Thamarakulam, Kollam",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pat-01",
+    "name": "Alqaaf Mandi Pandalam",
+    "district": "Pathanamthitta",
+    "location": "Pandalam, Adoor",
+    "rating": 4.4,
+    "reviews": 338,
+    "lat": 9.2556,
+    "lng": 76.8184,
+    "address": "Pandalam, Adoor",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "pat-02",
+    "name": "Lahab Yemen Mandi",
+    "district": "Pathanamthitta",
+    "location": "Mylapra, Pathanamthitta",
+    "rating": 4.2,
+    "reviews": 341,
+    "lat": 9.2963,
+    "lng": 76.7934,
+    "address": "Mylapra, Pathanamthitta",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pat-03",
+    "name": "Albaris Mandi & Grills",
+    "district": "Pathanamthitta",
+    "location": "Mylapra, Pathanamthitta",
+    "rating": 4.0,
+    "reviews": 586,
+    "lat": 9.2185,
+    "lng": 76.7596,
+    "address": "Mylapra, Pathanamthitta",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pat-04",
+    "name": "AlBaris Mandi & Grills Chengannur",
+    "district": "Pathanamthitta",
+    "location": "Mulakuzha, Chengannur",
+    "rating": 4.0,
+    "reviews": 821,
+    "lat": 9.3054,
+    "lng": 76.8157,
+    "address": "Mulakuzha, Chengannur",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pat-05",
+    "name": "Kalila Restaurant",
+    "district": "Pathanamthitta",
+    "location": "Chittoor, Pathanamthitta",
+    "rating": 4.0,
+    "reviews": 532,
+    "lat": 9.3063,
+    "lng": 76.7443,
+    "address": "Chittoor, Pathanamthitta",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pat-06",
+    "name": "Plated Pathanamthitta",
+    "district": "Pathanamthitta",
+    "location": "Thazhevettipram, Pathanamthitta",
+    "rating": 3.9,
+    "reviews": 717,
+    "lat": 9.2447,
+    "lng": 76.8128,
+    "address": "Thazhevettipram, Pathanamthitta",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pat-07",
+    "name": "Jamalis",
+    "district": "Pathanamthitta",
+    "location": "Melevettippuram, Pathanamthitta",
+    "rating": 3.8,
+    "reviews": 1706,
+    "lat": 9.3006,
+    "lng": 76.8087,
+    "address": "Melevettippuram, Pathanamthitta",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "pat-08",
+    "name": "Taban Yemeni Mandi - Adoor",
+    "district": "Pathanamthitta",
+    "location": "Adoor, Pathanamthitta",
+    "rating": 3.7,
+    "reviews": 1408,
+    "lat": 9.3033,
+    "lng": 76.8346,
+    "address": "Adoor, Pathanamthitta",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pat-09",
+    "name": "New Kalila Shawaya",
+    "district": "Pathanamthitta",
+    "location": "Stadium Jn, Pathanamthitta",
+    "rating": 3.7,
+    "reviews": 15,
+    "lat": 9.3117,
+    "lng": 76.7787,
+    "address": "Stadium Jn, Pathanamthitta",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pat-10",
+    "name": "Amani Arabian Restaurant",
+    "district": "Pathanamthitta",
+    "location": "Central Jn, Pathanamthitta",
+    "rating": 3.6,
+    "reviews": 1399,
+    "lat": 9.2151,
+    "lng": 76.8311,
+    "address": "Central Jn, Pathanamthitta",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pat-11",
+    "name": "Street Arabia Restaurant & Cafe",
+    "district": "Pathanamthitta",
+    "location": "Vettipuram, Pathanamthitta",
+    "rating": 3.5,
+    "reviews": 306,
+    "lat": 9.2989,
+    "lng": 76.7628,
+    "address": "Vettipuram, Pathanamthitta",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ala-01",
+    "name": "Al Razi Restaurant Alappuzha",
+    "district": "Alappuzha",
+    "location": "Pazhaveedu, Alappuzha",
+    "rating": 4.2,
+    "reviews": 2075,
+    "lat": 9.4876,
+    "lng": 76.3468,
+    "address": "Pazhaveedu, Alappuzha",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ala-02",
+    "name": "Al-Reem Mandi",
+    "district": "Alappuzha",
+    "location": "Civil Station Ward, Alappuzha",
+    "rating": 4.1,
+    "reviews": 760,
+    "lat": 9.4655,
+    "lng": 76.3757,
+    "address": "Civil Station Ward, Alappuzha",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "ala-03",
+    "name": "Al Miya Mandi Restaurant",
+    "district": "Alappuzha",
+    "location": "Kodiveedu, Alappuzha",
+    "rating": 4.0,
+    "reviews": 846,
+    "lat": 9.4857,
+    "lng": 76.3201,
+    "address": "Kodiveedu, Alappuzha",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ala-04",
+    "name": "Kubaba Food Park",
+    "district": "Alappuzha",
+    "location": "Thathampally, Alappuzha",
+    "rating": 4.0,
+    "reviews": 3572,
+    "lat": 9.4716,
+    "lng": 76.3653,
+    "address": "Thathampally, Alappuzha",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ala-05",
+    "name": "Beirut Kuzhimandi",
+    "district": "Alappuzha",
+    "location": "Poomkavu, Alappuzha",
+    "rating": 4.0,
+    "reviews": 229,
+    "lat": 9.4525,
+    "lng": 76.3429,
+    "address": "Poomkavu, Alappuzha",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ala-06",
+    "name": "Mandi Majlis",
+    "district": "Alappuzha",
+    "location": "Mannanchery, Alappuzha",
+    "rating": 4.0,
+    "reviews": 72,
+    "lat": 9.515,
+    "lng": 76.3622,
+    "address": "Mannanchery, Alappuzha",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ala-07",
+    "name": "Razi Arabia",
+    "district": "Alappuzha",
+    "location": "Vadackal, Alappuzha",
+    "rating": 3.9,
+    "reviews": 2045,
+    "lat": 9.5141,
+    "lng": 76.3775,
+    "address": "Vadackal, Alappuzha",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ala-08",
+    "name": "Arabian Knights AK",
+    "district": "Alappuzha",
+    "location": "Vellakkinar, Alappuzha",
+    "rating": 3.8,
+    "reviews": 52,
+    "lat": 9.4582,
+    "lng": 76.3278,
+    "address": "Vellakkinar, Alappuzha",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "ala-09",
+    "name": "Ahalan Mandi",
+    "district": "Alappuzha",
+    "location": "Pazhaveedu, Alappuzha",
+    "rating": 3.6,
+    "reviews": 889,
+    "lat": 9.4688,
+    "lng": 76.3002,
+    "address": "Pazhaveedu, Alappuzha",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ala-10",
+    "name": "Raz Al Khaima Restaurant",
+    "district": "Alappuzha",
+    "location": "Punnapra, Alappuzha",
+    "rating": 3.4,
+    "reviews": 123,
+    "lat": 9.5129,
+    "lng": 76.3057,
+    "address": "Punnapra, Alappuzha",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kot-01",
+    "name": "Eden Zayka Restaurant",
+    "district": "Kottayam",
+    "location": "Nattakom, Kottayam",
+    "rating": 4.6,
+    "reviews": 561,
+    "lat": 9.548,
+    "lng": 76.4795,
+    "address": "Nattakom, Kottayam",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kot-02",
+    "name": "Porchgrill Kottayam",
+    "district": "Kottayam",
+    "location": "Kanjikuzhi, Kottayam",
+    "rating": 4.6,
+    "reviews": 103,
+    "lat": 9.5678,
+    "lng": 76.5101,
+    "address": "Kanjikuzhi, Kottayam",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kot-03",
+    "name": "Saba Kuzhimandi",
+    "district": "Kottayam",
+    "location": "Kumaranalloor, Kottayam",
+    "rating": 4.1,
+    "reviews": 133,
+    "lat": 9.5425,
+    "lng": 76.4789,
+    "address": "Kumaranalloor, Kottayam",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kot-04",
+    "name": "Al Ajmi Yemen Kuzhimandi",
+    "district": "Kottayam",
+    "location": "Ettumanoor, Kottayam",
+    "rating": 3.9,
+    "reviews": 1186,
+    "lat": 9.5907,
+    "lng": 76.5371,
+    "address": "Ettumanoor, Kottayam",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "kot-05",
+    "name": "Farsi Arabic Cafe",
+    "district": "Kottayam",
+    "location": "Kodimatha, Kottayam",
+    "rating": 3.9,
+    "reviews": 1059,
+    "lat": 9.5535,
+    "lng": 76.5358,
+    "address": "Kodimatha, Kottayam",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kot-06",
+    "name": "Malabar Majlis Kuzhimandhi Restaurant",
+    "district": "Kottayam",
+    "location": "Kodimatha, Kottayam",
+    "rating": 3.9,
+    "reviews": 1108,
+    "lat": 9.6265,
+    "lng": 76.544,
+    "address": "Kodimatha, Kottayam",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kot-07",
+    "name": "Al Razi Restaurant, Kuzhimandhi Kottayam",
+    "district": "Kottayam",
+    "location": "Kanjikuzhi, Kottayam",
+    "rating": 3.8,
+    "reviews": 1902,
+    "lat": 9.5924,
+    "lng": 76.5699,
+    "address": "Kanjikuzhi, Kottayam",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kot-08",
+    "name": "Nusrat Restaurant",
+    "district": "Kottayam",
+    "location": "Thirunakara, Kottayam",
+    "rating": 3.8,
+    "reviews": 1907,
+    "lat": 9.6294,
+    "lng": 76.5174,
+    "address": "Thirunakara, Kottayam",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kot-09",
+    "name": "Khaleef Mandi",
+    "district": "Kottayam",
+    "location": "Chalukunnu, Kottayam",
+    "rating": 3.6,
+    "reviews": 1023,
+    "lat": 9.6141,
+    "lng": 76.4959,
+    "address": "Chalukunnu, Kottayam",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "idu-01",
+    "name": "Mandi Hut",
+    "district": "Idukki",
+    "location": "Adimali, Idukki",
+    "rating": 4.6,
+    "reviews": 69,
+    "lat": 9.8221,
+    "lng": 77.0079,
+    "address": "Adimali, Idukki",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "idu-02",
+    "name": "Periyar Tiger Cafe Restaurant",
+    "district": "Idukki",
+    "location": "Thekkady, Kumily, Idukki",
+    "rating": 4.5,
+    "reviews": 6336,
+    "lat": 9.8146,
+    "lng": 76.9707,
+    "address": "Thekkady, Kumily, Idukki",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "idu-03",
+    "name": "Chandy's Best in Town Restaurant & Cafe",
+    "district": "Idukki",
+    "location": "Upputhara, Idukki",
+    "rating": 4.2,
+    "reviews": 340,
+    "lat": 9.8216,
+    "lng": 76.974,
+    "address": "Upputhara, Idukki",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "idu-04",
+    "name": "Zayan Mandi Restaurant",
+    "district": "Idukki",
+    "location": "Vengalloor, Thodupuzha",
+    "rating": 4.2,
+    "reviews": 360,
+    "lat": 9.8862,
+    "lng": 76.9812,
+    "address": "Vengalloor, Thodupuzha",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "idu-05",
+    "name": "Camel Resto",
+    "district": "Idukki",
+    "location": "Nedumkandam, Idukki",
+    "rating": 4.2,
+    "reviews": 318,
+    "lat": 9.8064,
+    "lng": 76.9968,
+    "address": "Nedumkandam, Idukki",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "idu-06",
+    "name": "Kaifan Kuzhimanthi (Thodupuzha)",
+    "district": "Idukki",
+    "location": "Mangattukavala, Thodupuzha",
+    "rating": 4.2,
+    "reviews": 2482,
+    "lat": 9.8297,
+    "lng": 76.9726,
+    "address": "Mangattukavala, Thodupuzha",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "idu-07",
+    "name": "Al Arab Kuzhi Mandi",
+    "district": "Idukki",
+    "location": "Vengalloor, Thodupuzha",
+    "rating": 4.1,
+    "reviews": 144,
+    "lat": 9.8146,
+    "lng": 77.0129,
+    "address": "Vengalloor, Thodupuzha",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "idu-08",
+    "name": "Tamam Mandi Kattappana",
+    "district": "Idukki",
+    "location": "Kattappana, Idukki",
+    "rating": 4.0,
+    "reviews": 353,
+    "lat": 9.8414,
+    "lng": 77.0162,
+    "address": "Kattappana, Idukki",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "idu-09",
+    "name": "Farsi Arabic Cafe",
+    "district": "Idukki",
+    "location": "Vadakumuri, Thodupuzha",
+    "rating": 4.0,
+    "reviews": 763,
+    "lat": 9.8275,
+    "lng": 76.9361,
+    "address": "Vadakumuri, Thodupuzha",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "idu-10",
+    "name": "Pepper Mint Restaurant",
+    "district": "Idukki",
+    "location": "Kattappana, Idukki",
+    "rating": 3.9,
+    "reviews": 1814,
+    "lat": 9.8704,
+    "lng": 76.9308,
+    "address": "Kattappana, Idukki",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "idu-11",
+    "name": "Peppermint Restaurant Cheruthoni",
+    "district": "Idukki",
+    "location": "Cheruthoni, Idukki",
+    "rating": 3.8,
+    "reviews": 216,
+    "lat": 9.8823,
+    "lng": 76.9398,
+    "address": "Cheruthoni, Idukki",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "idu-12",
+    "name": "Zurbian Mandhi",
+    "district": "Idukki",
+    "location": "Mangattukavala, Thodupuzha",
+    "rating": 3.8,
+    "reviews": 42,
+    "lat": 9.8735,
+    "lng": 76.9646,
+    "address": "Mangattukavala, Thodupuzha",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "idu-13",
+    "name": "Yemani Mandhi Rajakumari",
+    "district": "Idukki",
+    "location": "Rajakumari, Idukki",
+    "rating": 3.7,
+    "reviews": 156,
+    "lat": 9.8795,
+    "lng": 77.0099,
+    "address": "Rajakumari, Idukki",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "ern-01",
+    "name": "Kubaba Kuzhimandhi Edappally",
+    "district": "Ernakulam",
+    "location": "Edappally, Kochi",
+    "rating": 5.0,
+    "reviews": 1,
+    "lat": 9.9857,
+    "lng": 76.3052,
+    "address": "Edappally, Kochi",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ern-02",
+    "name": "Arabian Palace Aluva",
+    "district": "Ernakulam",
+    "location": "Desom, Aluva",
+    "rating": 4.5,
+    "reviews": 2919,
+    "lat": 9.994,
+    "lng": 76.2782,
+    "address": "Desom, Aluva",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-03",
+    "name": "Arabian Palace Edappally",
+    "district": "Ernakulam",
+    "location": "Edappally, Kochi",
+    "rating": 4.3,
+    "reviews": 16492,
+    "lat": 9.942,
+    "lng": 76.3318,
+    "address": "Edappally, Kochi",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-04",
+    "name": "Al Reem",
+    "district": "Ernakulam",
+    "location": "Thammanam, Kochi",
+    "rating": 4.3,
+    "reviews": 9088,
+    "lat": 10.0201,
+    "lng": 76.3148,
+    "address": "Thammanam, Kochi",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-05",
+    "name": "Mehfil Mandi Muppathadam",
+    "district": "Ernakulam",
+    "location": "Muppathadam, Aluva",
+    "rating": 4.3,
+    "reviews": 63,
+    "lat": 10.002,
+    "lng": 76.3485,
+    "address": "Muppathadam, Aluva",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ern-06",
+    "name": "Al Reem Kathrikadav",
+    "district": "Ernakulam",
+    "location": "Thammanam-Pullepady Rd, Kochi",
+    "rating": 4.2,
+    "reviews": 4441,
+    "lat": 9.9439,
+    "lng": 76.3008,
+    "address": "Thammanam-Pullepady Rd, Kochi",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "ern-07",
+    "name": "Emirathi Mandi Restaurant",
+    "district": "Ernakulam",
+    "location": "Kuzhivelippady, Aluva",
+    "rating": 4.2,
+    "reviews": 250,
+    "lat": 9.9396,
+    "lng": 76.3083,
+    "address": "Kuzhivelippady, Aluva",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ern-08",
+    "name": "Kausar Mandi",
+    "district": "Ernakulam",
+    "location": "Panampilly Nagar, Kochi",
+    "rating": 4.2,
+    "reviews": 275,
+    "lat": 10.0001,
+    "lng": 76.2828,
+    "address": "Panampilly Nagar, Kochi",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-09",
+    "name": "Soofi Mandi",
+    "district": "Ernakulam",
+    "location": "Muttom Thaikavu, Aluva",
+    "rating": 4.2,
+    "reviews": 10119,
+    "lat": 9.9854,
+    "lng": 76.3415,
+    "address": "Muttom Thaikavu, Aluva",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-10",
+    "name": "Al-Sheba Kuzhimanthi",
+    "district": "Ernakulam",
+    "location": "Thrikkakara, Kakkanad, Kochi",
+    "rating": 4.1,
+    "reviews": 5459,
+    "lat": 9.9497,
+    "lng": 76.255,
+    "address": "Thrikkakara, Kakkanad, Kochi",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-11",
+    "name": "D'Lite Kuzhimanthi",
+    "district": "Ernakulam",
+    "location": "Irumpanam, Thrippunithura",
+    "rating": 4.1,
+    "reviews": 1249,
+    "lat": 9.9681,
+    "lng": 76.3108,
+    "address": "Irumpanam, Thrippunithura",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ern-12",
+    "name": "Emirathi's Mandi Aluva",
+    "district": "Ernakulam",
+    "location": "Thottakkattukara, Aluva",
+    "rating": 4.1,
+    "reviews": 154,
+    "lat": 9.9591,
+    "lng": 76.3016,
+    "address": "Thottakkattukara, Aluva",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "ern-13",
+    "name": "Mehrab Mandi Yemeni Restaurant",
+    "district": "Ernakulam",
+    "location": "Padivattom, Edappally, Kochi",
+    "rating": 4.1,
+    "reviews": 4097,
+    "lat": 9.9701,
+    "lng": 76.3404,
+    "address": "Padivattom, Edappally, Kochi",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ern-14",
+    "name": "Tamam Kuzhimandhi",
+    "district": "Ernakulam",
+    "location": "Nellikuzhi, Kothamangalam",
+    "rating": 4.1,
+    "reviews": 1414,
+    "lat": 9.9417,
+    "lng": 76.3455,
+    "address": "Nellikuzhi, Kothamangalam",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-15",
+    "name": "Tamam Kuzhimandi",
+    "district": "Ernakulam",
+    "location": "Perumbavoor",
+    "rating": 4.1,
+    "reviews": 819,
+    "lat": 9.9759,
+    "lng": 76.2896,
+    "address": "Perumbavoor",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-16",
+    "name": "Kausar Mandi",
+    "district": "Ernakulam",
+    "location": "Pullepady, Kochi",
+    "rating": 4.0,
+    "reviews": 539,
+    "lat": 9.9845,
+    "lng": 76.2664,
+    "address": "Pullepady, Kochi",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "ern-17",
+    "name": "Mandi World Aluva",
+    "district": "Ernakulam",
+    "location": "Thottakkattukara, Aluva",
+    "rating": 4.0,
+    "reviews": 540,
+    "lat": 10.0302,
+    "lng": 76.2953,
+    "address": "Thottakkattukara, Aluva",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "ern-18",
+    "name": "MY FC Food Club Turkish Mandi",
+    "district": "Ernakulam",
+    "location": "Thaikkattukara, Aluva",
+    "rating": 3.9,
+    "reviews": 1062,
+    "lat": 9.9603,
+    "lng": 76.2796,
+    "address": "Thaikkattukara, Aluva",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "ern-19",
+    "name": "Al-Yemeni Mandi",
+    "district": "Ernakulam",
+    "location": "Kaloor, Kochi",
+    "rating": 3.1,
+    "reviews": 115,
+    "lat": 9.9874,
+    "lng": 76.2555,
+    "address": "Kaloor, Kochi",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "thr-01",
+    "name": "Nahdi Mandi Restaurant Thrissur",
+    "district": "Thrissur",
+    "location": "Veliyannur, Thrissur",
+    "rating": 4.2,
+    "reviews": 11083,
+    "lat": 10.4934,
+    "lng": 76.2028,
+    "address": "Veliyannur, Thrissur",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thr-02",
+    "name": "Soofi Mandi",
+    "district": "Thrissur",
+    "location": "Ollur Town, Thrissur",
+    "rating": 4.1,
+    "reviews": 6247,
+    "lat": 10.4884,
+    "lng": 76.2156,
+    "address": "Ollur Town, Thrissur",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thr-03",
+    "name": "Mandi Souk",
+    "district": "Thrissur",
+    "location": "East Fort, Thrissur",
+    "rating": 4.0,
+    "reviews": 24,
+    "lat": 10.5125,
+    "lng": 76.2618,
+    "address": "East Fort, Thrissur",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "thr-04",
+    "name": "Roohi Mandhi",
+    "district": "Thrissur",
+    "location": "Ayyanthole, Thrissur",
+    "rating": 4.0,
+    "reviews": 799,
+    "lat": 10.487,
+    "lng": 76.2347,
+    "address": "Ayyanthole, Thrissur",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pal-01",
+    "name": "Deli's Mandhi Palace",
+    "district": "Palakkad",
+    "location": "Sultanpet, Palakkad",
+    "rating": 4.4,
+    "reviews": 219,
+    "lat": 10.7449,
+    "lng": 76.6985,
+    "address": "Sultanpet, Palakkad",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "pal-02",
+    "name": "Soofi Mandi Palakkad",
+    "district": "Palakkad",
+    "location": "Kunnathurmedu, Palakkad",
+    "rating": 4.2,
+    "reviews": 1600,
+    "lat": 10.7758,
+    "lng": 76.6888,
+    "address": "Kunnathurmedu, Palakkad",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pal-03",
+    "name": "Nahdi Kuzhimandhi",
+    "district": "Palakkad",
+    "location": "Parakkunnam, Palakkad",
+    "rating": 4.2,
+    "reviews": 3987,
+    "lat": 10.7561,
+    "lng": 76.6476,
+    "address": "Parakkunnam, Palakkad",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pal-04",
+    "name": "Farzi Kuzhimanthi",
+    "district": "Palakkad",
+    "location": "Santhi Nagar, Palakkad",
+    "rating": 3.9,
+    "reviews": 721,
+    "lat": 10.7677,
+    "lng": 76.6623,
+    "address": "Santhi Nagar, Palakkad",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pal-05",
+    "name": "Noora Restaurant (Malappuram Kuzhimanthi)",
+    "district": "Palakkad",
+    "location": "Pirayiri, Palakkad",
+    "rating": 3.9,
+    "reviews": 354,
+    "lat": 10.8029,
+    "lng": 76.6536,
+    "address": "Pirayiri, Palakkad",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pal-06",
+    "name": "Street Arabiya Restaurant",
+    "district": "Palakkad",
+    "location": "Mankavu, Palakkad",
+    "rating": 3.9,
+    "reviews": 1163,
+    "lat": 10.801,
+    "lng": 76.6623,
+    "address": "Mankavu, Palakkad",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pal-07",
+    "name": "Arabian Delight Arabic Mandi",
+    "district": "Palakkad",
+    "location": "Selvapalayam, Palakkad",
+    "rating": 3.7,
+    "reviews": 1449,
+    "lat": 10.7807,
+    "lng": 76.6544,
+    "address": "Selvapalayam, Palakkad",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "pal-08",
+    "name": "Noorjehan Open Grill Restaurant",
+    "district": "Palakkad",
+    "location": "Manali, Palakkad",
+    "rating": 3.6,
+    "reviews": 6088,
+    "lat": 10.8064,
+    "lng": 76.6651,
+    "address": "Manali, Palakkad",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "pal-09",
+    "name": "Al Reem Palakkad",
+    "district": "Palakkad",
+    "location": "Manali, Palakkad",
+    "rating": 3.5,
+    "reviews": 397,
+    "lat": 10.7623,
+    "lng": 76.6175,
+    "address": "Manali, Palakkad",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "pal-10",
+    "name": "Arabian Grill & Fry",
+    "district": "Palakkad",
+    "location": "Pallippuram, Palakkad",
+    "rating": 3.4,
+    "reviews": 400,
+    "lat": 10.7774,
+    "lng": 76.6976,
+    "address": "Pallippuram, Palakkad",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-01",
+    "name": "Majas Mandi",
+    "district": "Malappuram",
+    "location": "Pookkottur, Malappuram",
+    "rating": 4.8,
+    "reviews": 27,
+    "lat": 11.0556,
+    "lng": 76.1104,
+    "address": "Pookkottur, Malappuram",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-02",
+    "name": "Nahdi Kuzhimandhi",
+    "district": "Malappuram",
+    "location": "Perinthalmanna, Malappuram",
+    "rating": 4.3,
+    "reviews": 6168,
+    "lat": 11.0656,
+    "lng": 76.0716,
+    "address": "Perinthalmanna, Malappuram",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "mal-03",
+    "name": "Rahij Raidan Mandi Mullampara",
+    "district": "Malappuram",
+    "location": "Manjeri, Malappuram",
+    "rating": 4.3,
+    "reviews": 143,
+    "lat": 11.0386,
+    "lng": 76.1122,
+    "address": "Manjeri, Malappuram",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "mal-04",
+    "name": "Al Junub Kuzhi Mandi",
+    "district": "Malappuram",
+    "location": "Parathakkad, Malappuram",
+    "rating": 4.3,
+    "reviews": 92,
+    "lat": 11.0774,
+    "lng": 76.0303,
+    "address": "Parathakkad, Malappuram",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "mal-05",
+    "name": "Al Raydhan Kuzhi Mandi",
+    "district": "Malappuram",
+    "location": "Kannamangalam, Malappuram",
+    "rating": 4.3,
+    "reviews": 247,
+    "lat": 11.0591,
+    "lng": 76.0261,
+    "address": "Kannamangalam, Malappuram",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-06",
+    "name": "Nahas Mandi",
+    "district": "Malappuram",
+    "location": "Munduparamba, Malappuram",
+    "rating": 4.2,
+    "reviews": 131,
+    "lat": 11.0476,
+    "lng": 76.078,
+    "address": "Munduparamba, Malappuram",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-07",
+    "name": "Mandhi Hut",
+    "district": "Malappuram",
+    "location": "Ponmala, Malappuram",
+    "rating": 4.2,
+    "reviews": 182,
+    "lat": 11.0151,
+    "lng": 76.0559,
+    "address": "Ponmala, Malappuram",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-08",
+    "name": "Turkish B.B.Q",
+    "district": "Malappuram",
+    "location": "Varangode, Malappuram",
+    "rating": 4.1,
+    "reviews": 246,
+    "lat": 11.0082,
+    "lng": 76.0354,
+    "address": "Varangode, Malappuram",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "mal-09",
+    "name": "Al Rayhan Kuzhimandhi",
+    "district": "Malappuram",
+    "location": "Kolmanna, Malappuram",
+    "rating": 4.1,
+    "reviews": 40,
+    "lat": 11.0861,
+    "lng": 76.0254,
+    "address": "Kolmanna, Malappuram",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "mal-10",
+    "name": "Madhbi Hotel",
+    "district": "Malappuram",
+    "location": "Down Hill, Malappuram",
+    "rating": 4.0,
+    "reviews": 1207,
+    "lat": 11.0364,
+    "lng": 76.1028,
+    "address": "Down Hill, Malappuram",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "mal-11",
+    "name": "Sultan Mandi",
+    "district": "Malappuram",
+    "location": "Panchayathpadi, Malappuram",
+    "rating": 4.0,
+    "reviews": 722,
+    "lat": 11.0543,
+    "lng": 76.1147,
+    "address": "Panchayathpadi, Malappuram",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-12",
+    "name": "Ziyar Majlis",
+    "district": "Malappuram",
+    "location": "Down Hill, Malappuram",
+    "rating": 3.6,
+    "reviews": 66,
+    "lat": 11.0373,
+    "lng": 76.0896,
+    "address": "Down Hill, Malappuram",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "mal-13",
+    "name": "Taste of Arabia Malappuram",
+    "district": "Malappuram",
+    "location": "Up Hill, Malappuram",
+    "rating": 3.0,
+    "reviews": 61,
+    "lat": 11.0262,
+    "lng": 76.1024,
+    "address": "Up Hill, Malappuram",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-01",
+    "name": "Mandhi Zouk",
+    "district": "Kozhikode",
+    "location": "Kallayi, Kozhikode",
+    "rating": 4.4,
+    "reviews": 89,
+    "lat": 11.2124,
+    "lng": 75.7562,
+    "address": "Kallayi, Kozhikode",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "koz-02",
+    "name": "Nahdi Mandi Calicut",
+    "district": "Kozhikode",
+    "location": "Mananchira, Kozhikode",
+    "rating": 4.4,
+    "reviews": 14129,
+    "lat": 11.2876,
+    "lng": 75.8136,
+    "address": "Mananchira, Kozhikode",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "koz-03",
+    "name": "Arabian Palace Kozhikode",
+    "district": "Kozhikode",
+    "location": "Mankave, Kozhikode",
+    "rating": 4.4,
+    "reviews": 2791,
+    "lat": 11.2239,
+    "lng": 75.8273,
+    "address": "Mankave, Kozhikode",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "koz-04",
+    "name": "Soofi Mandi Calicut",
+    "district": "Kozhikode",
+    "location": "Mananchira, Kozhikode",
+    "rating": 4.3,
+    "reviews": 8138,
+    "lat": 11.2808,
+    "lng": 75.811,
+    "address": "Mananchira, Kozhikode",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-05",
+    "name": "Kausar Mandi",
+    "district": "Kozhikode",
+    "location": "Vellayil, Kozhikode",
+    "rating": 4.3,
+    "reviews": 2091,
+    "lat": 11.3041,
+    "lng": 75.7958,
+    "address": "Vellayil, Kozhikode",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-06",
+    "name": "Arabian Majlis Chungam-Calicut",
+    "district": "Kozhikode",
+    "location": "Feroke, Kozhikode",
+    "rating": 4.3,
+    "reviews": 3791,
+    "lat": 11.255,
+    "lng": 75.8025,
+    "address": "Feroke, Kozhikode",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-07",
+    "name": "Mehrab Mandi Yemeni Restaurant",
+    "district": "Kozhikode",
+    "location": "Eranhippalam, Kozhikode",
+    "rating": 4.1,
+    "reviews": 3089,
+    "lat": 11.2188,
+    "lng": 75.7673,
+    "address": "Eranhippalam, Kozhikode",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "koz-08",
+    "name": "Mandhi House Family Restaurant",
+    "district": "Kozhikode",
+    "location": "2nd Gate, Kozhikode",
+    "rating": 4.1,
+    "reviews": 2798,
+    "lat": 11.227,
+    "lng": 75.7542,
+    "address": "2nd Gate, Kozhikode",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "koz-09",
+    "name": "Kubaba Calicut",
+    "district": "Kozhikode",
+    "location": "Puthiyara, Kozhikode",
+    "rating": 4.0,
+    "reviews": 1890,
+    "lat": 11.2733,
+    "lng": 75.7597,
+    "address": "Puthiyara, Kozhikode",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "koz-10",
+    "name": "Sufi Darbab",
+    "district": "Kozhikode",
+    "location": "Kuttichira, Kozhikode",
+    "rating": 3.9,
+    "reviews": 1018,
+    "lat": 11.2447,
+    "lng": 75.7748,
+    "address": "Kuttichira, Kozhikode",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-11",
+    "name": "Mahadi Kuzhimandi Restaurant",
+    "district": "Kozhikode",
+    "location": "Eranhikkal, Kozhikode",
+    "rating": 3.9,
+    "reviews": 780,
+    "lat": 11.3036,
+    "lng": 75.7457,
+    "address": "Eranhikkal, Kozhikode",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-12",
+    "name": "Raydan Kuzhimandi Restaurant",
+    "district": "Kozhikode",
+    "location": "Perumanna, Kozhikode",
+    "rating": 3.8,
+    "reviews": 60,
+    "lat": 11.257,
+    "lng": 75.7412,
+    "address": "Perumanna, Kozhikode",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-13",
+    "name": "Bab Al Mandi Restaurant",
+    "district": "Kozhikode",
+    "location": "Arayidathupalam, Kozhikode",
+    "rating": 3.6,
+    "reviews": 247,
+    "lat": 11.231,
+    "lng": 75.7852,
+    "address": "Arayidathupalam, Kozhikode",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "koz-14",
+    "name": "Amani Kuzhi Mandhi",
+    "district": "Kozhikode",
+    "location": "Kannanchery, Kozhikode",
+    "rating": 3.6,
+    "reviews": 305,
+    "lat": 11.2671,
+    "lng": 75.7369,
+    "address": "Kannanchery, Kozhikode",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "koz-15",
+    "name": "Dragon Arabia Kuzhi Mandi",
+    "district": "Kozhikode",
+    "location": "Ramanattukara, Kozhikode",
+    "rating": 3.6,
+    "reviews": 157,
+    "lat": 11.2651,
+    "lng": 75.8142,
+    "address": "Ramanattukara, Kozhikode",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "koz-16",
+    "name": "Atbaq Mandhi",
+    "district": "Kozhikode",
+    "location": "Mananchira, Kozhikode",
+    "rating": 3.4,
+    "reviews": 79,
+    "lat": 11.2316,
+    "lng": 75.7512,
+    "address": "Mananchira, Kozhikode",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "koz-17",
+    "name": "Amani Kuzhimandhi",
+    "district": "Kozhikode",
+    "location": "Puthiyangadi, Kozhikode",
+    "rating": 3.1,
+    "reviews": 83,
+    "lat": 11.2359,
+    "lng": 75.7858,
+    "address": "Puthiyangadi, Kozhikode",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "way-01",
+    "name": "Grill'nCo Resto Cafe",
+    "district": "Wayanad",
+    "location": "Muttil South, Wayanad",
+    "rating": 4.8,
+    "reviews": 256,
+    "lat": 11.6172,
+    "lng": 76.0396,
+    "address": "Muttil South, Wayanad",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "way-02",
+    "name": "Copper Kitchen Wayanad",
+    "district": "Wayanad",
+    "location": "Muttil South, Wayanad",
+    "rating": 4.7,
+    "reviews": 5357,
+    "lat": 11.6526,
+    "lng": 76.0841,
+    "address": "Muttil South, Wayanad",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "way-03",
+    "name": "Alreem Mandi Bathery",
+    "district": "Wayanad",
+    "location": "Sultan Bathery, Wayanad",
+    "rating": 4.4,
+    "reviews": 140,
+    "lat": 11.5782,
+    "lng": 76.0384,
+    "address": "Sultan Bathery, Wayanad",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "way-04",
+    "name": "Newform Restaurant",
+    "district": "Wayanad",
+    "location": "Kakkavayal, Muttil North, Wayanad",
+    "rating": 4.3,
+    "reviews": 2103,
+    "lat": 11.6326,
+    "lng": 76.131,
+    "address": "Kakkavayal, Muttil North, Wayanad",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "way-05",
+    "name": "Shawaya House",
+    "district": "Wayanad",
+    "location": "Mananthavady, Wayanad",
+    "rating": 4.2,
+    "reviews": 186,
+    "lat": 11.5835,
+    "lng": 76.039,
+    "address": "Mananthavady, Wayanad",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "way-06",
+    "name": "WMO Qatar Bakery & Restaurant",
+    "district": "Wayanad",
+    "location": "Muttil North, Wayanad",
+    "rating": 4.1,
+    "reviews": 5141,
+    "lat": 11.6381,
+    "lng": 76.1264,
+    "address": "Muttil North, Wayanad",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "way-07",
+    "name": "Couscous Mandi Restaurant",
+    "district": "Wayanad",
+    "location": "SH54, Wayanad",
+    "rating": 3.8,
+    "reviews": 459,
+    "lat": 11.5718,
+    "lng": 76.1319,
+    "address": "SH54, Wayanad",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kan-01",
+    "name": "Saudi Shawaya Kannur",
+    "district": "Kannur",
+    "location": "Padanapalam, Kannur",
+    "rating": 4.5,
+    "reviews": 1923,
+    "lat": 11.8339,
+    "lng": 75.4161,
+    "address": "Padanapalam, Kannur",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kan-02",
+    "name": "Nahdi Mandi Kannur",
+    "district": "Kannur",
+    "location": "Thazhe Chovva, Kannur",
+    "rating": 4.4,
+    "reviews": 1506,
+    "lat": 11.8377,
+    "lng": 75.3362,
+    "address": "Thazhe Chovva, Kannur",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "kan-03",
+    "name": "Cafe Ghazal",
+    "district": "Kannur",
+    "location": "Payyambalam, Kannur",
+    "rating": 4.3,
+    "reviews": 3802,
+    "lat": 11.8281,
+    "lng": 75.3882,
+    "address": "Payyambalam, Kannur",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kan-04",
+    "name": "Maraabi Mandi Restaurant Kannur",
+    "district": "Kannur",
+    "location": "South Bazar, Kannur",
+    "rating": 4.0,
+    "reviews": 1137,
+    "lat": 11.8358,
+    "lng": 75.3446,
+    "address": "South Bazar, Kannur",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kan-05",
+    "name": "PVR Mandi Mahal Kannur",
+    "district": "Kannur",
+    "location": "Kannothamchal, Kannur",
+    "rating": 4.1,
+    "reviews": 671,
+    "lat": 11.8934,
+    "lng": 75.3926,
+    "address": "Kannothamchal, Kannur",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kan-06",
+    "name": "Kababish",
+    "district": "Kannur",
+    "location": "Payyambalam, Kannur",
+    "rating": 4.1,
+    "reviews": 105,
+    "lat": 11.905,
+    "lng": 75.371,
+    "address": "Payyambalam, Kannur",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kan-07",
+    "name": "Corniche Restaurant",
+    "district": "Kannur",
+    "location": "Kannur Cantonment, Kannur",
+    "rating": 3.9,
+    "reviews": 520,
+    "lat": 11.8579,
+    "lng": 75.3373,
+    "address": "Kannur Cantonment, Kannur",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kan-08",
+    "name": "CitaPani Restaurant",
+    "district": "Kannur",
+    "location": "SN Park Rd, Kannur",
+    "rating": 3.7,
+    "reviews": 4641,
+    "lat": 11.855,
+    "lng": 75.3482,
+    "address": "SN Park Rd, Kannur",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "kan-09",
+    "name": "Sufi Makhan Restaurant",
+    "district": "Kannur",
+    "location": "Padanapalam, Kannur",
+    "rating": 3.6,
+    "reviews": 3357,
+    "lat": 11.8612,
+    "lng": 75.3848,
+    "address": "Padanapalam, Kannur",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kas-01",
+    "name": "Kuzhi Mandi Restaurant",
+    "district": "Kasaragod",
+    "location": "Poyya, Uppala, Kasaragod",
+    "rating": 4.2,
+    "reviews": 952,
+    "lat": 12.4592,
+    "lng": 74.9562,
+    "address": "Poyya, Uppala, Kasaragod",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kas-02",
+    "name": "Viceroy Restaurant",
+    "district": "Kasaragod",
+    "location": "City Tower Hotel, Kasaragod",
+    "rating": 4.2,
+    "reviews": 3333,
+    "lat": 12.4902,
+    "lng": 74.9375,
+    "address": "City Tower Hotel, Kasaragod",
+    "types": [
+      "Mutton Mandhi",
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kas-03",
+    "name": "Diamond Dine",
+    "district": "Kasaragod",
+    "location": "Kasaragod town",
+    "rating": 4.0,
+    "reviews": 583,
+    "lat": 12.5405,
+    "lng": 74.952,
+    "address": "Kasaragod town",
+    "types": [
+      "Fish Mandhi",
+      "Chicken Mandhi"
+    ]
+  },
+  {
+    "id": "kas-04",
+    "name": "Royal Dine",
+    "district": "Kasaragod",
+    "location": "Chandragiri Rd, Kasaragod",
+    "rating": 4.0,
+    "reviews": 3582,
+    "lat": 12.4686,
+    "lng": 74.9445,
+    "address": "Chandragiri Rd, Kasaragod",
+    "types": [
+      "Alfaham Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kas-05",
+    "name": "Al Shami Mandhi Restaurant",
+    "district": "Kasaragod",
+    "location": "Kanhangad South, Kasaragod",
+    "rating": 3.7,
+    "reviews": 334,
+    "lat": 12.456,
+    "lng": 74.9671,
+    "address": "Kanhangad South, Kasaragod",
+    "types": [
+      "Chicken Mandhi",
+      "Alfaham Mandhi"
+    ]
+  },
+  {
+    "id": "kas-06",
+    "name": "Mandi Hub Payyanki",
+    "district": "Kasaragod",
+    "location": "Cheruvathur, Kasaragod",
+    "rating": 3.6,
+    "reviews": 115,
+    "lat": 12.4639,
+    "lng": 75.025,
+    "address": "Cheruvathur, Kasaragod",
+    "types": [
+      "Chicken Mandhi",
+      "Mutton Mandhi"
+    ]
+  },
+  {
+    "id": "kas-07",
+    "name": "Signature By Metro Multicuisine Restaurant",
+    "district": "Kasaragod",
+    "location": "Anebagilu, Kasaragod",
+    "rating": 3.6,
+    "reviews": 529,
+    "lat": 12.5416,
+    "lng": 75.0256,
+    "address": "Anebagilu, Kasaragod",
+    "types": [
+      "Beef Mandhi",
+      "Chicken Mandhi"
+    ]
+  }
+]
