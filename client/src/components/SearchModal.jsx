@@ -2,21 +2,23 @@ import { useEffect, useMemo, useState } from "react";
 import { useShops, haversineKm } from "../hooks/useShops";
 import { useCommunity } from "../hooks/useCommunity";
 import { useApp } from "../context/AppContext";
+import { subscribeReviews } from "../services/reviewService";
 import "./SearchModal.css";
-
-const REVIEWS_ITEMS = [
-  { id: "r1", name: "Anoop", shop: "Mandi Manzil", text: "The rice alone is worth the drive. Meat fell right off the bone." },
-  { id: "r2", name: "Fathima", shop: "Zauq Mandi", text: "Portion sizes are unreal — came for lunch, left with dinner too." },
-  { id: "r3", name: "Rahul", shop: "Spicy Pit", text: "Best mandhi I've had outside of a Gulf trip, honestly." },
-  { id: "r4", name: "Meera", shop: "Nahdi Kuzhimandhi", text: "Service was quick even on a packed Sunday afternoon." },
-];
 
 export default function SearchModal() {
   const { searchOpen, setSearchOpen, openShopDetail, openCommunity } = useApp();
   const { shops } = useShops();
-  const { groups } = useCommunity(shops);
+  const { groups } = useCommunity();
   const [query, setQuery] = useState("");
   const [userLoc, setUserLoc] = useState(null);
+  const [liveReviews, setLiveReviews] = useState([]);
+
+  useEffect(() => {
+    const unsub = subscribeReviews((items) => {
+      setLiveReviews(items || []);
+    });
+    return () => unsub();
+  }, []);
 
   useEffect(() => {
     if (!searchOpen) setQuery("");
@@ -32,27 +34,27 @@ export default function SearchModal() {
     // 1. Search Shops
     let shopList = shops.filter(
       (s) =>
-        s.name.toLowerCase().includes(q) ||
-        s.district.toLowerCase().includes(q) ||
-        s.location.toLowerCase().includes(q) ||
-        (s.types || []).some((t) => t.toLowerCase().includes(q))
+        (s.name || s.shopName || "").toLowerCase().includes(q) ||
+        (s.district || "").toLowerCase().includes(q) ||
+        (s.address || s.location || "").toLowerCase().includes(q) ||
+        (s.types || s.selectedTypes || []).some((t) => t.toLowerCase().includes(q))
     );
     if (userLoc) shopList = [...shopList].sort((a, b) => haversineKm(userLoc, a) - haversineKm(userLoc, b));
 
     // 2. Search Community Meetups
     const communityList = groups.filter(
       (g) =>
-        g.restaurant.toLowerCase().includes(q) ||
-        g.district.toLowerCase().includes(q) ||
-        (g.message && g.message.toLowerCase().includes(q))
+        (g.name || g.groupName || g.restaurant || "").toLowerCase().includes(q) ||
+        (g.district || "").toLowerCase().includes(q) ||
+        (g.description || "").toLowerCase().includes(q)
     );
 
     // 3. Search Reviews
-    const reviewList = REVIEWS_ITEMS.filter(
+    const reviewList = liveReviews.filter(
       (r) =>
-        r.name.toLowerCase().includes(q) ||
-        r.shop.toLowerCase().includes(q) ||
-        r.text.toLowerCase().includes(q)
+        (r.userName || r.name || "").toLowerCase().includes(q) ||
+        (r.shopName || r.shop || "").toLowerCase().includes(q) ||
+        (r.comment || r.text || "").toLowerCase().includes(q)
     );
 
     return {
@@ -60,7 +62,7 @@ export default function SearchModal() {
       community: communityList.slice(0, 3),
       reviews: reviewList.slice(0, 3),
     };
-  }, [query, shops, groups, userLoc]);
+  }, [query, shops, groups, liveReviews, userLoc]);
 
   const locate = () => {
     if (!navigator.geolocation) return;

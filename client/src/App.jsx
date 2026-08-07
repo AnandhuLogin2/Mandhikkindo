@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import { useReveal } from "./hooks/useReveal";
@@ -25,6 +25,8 @@ import Toast from "./components/Toast";
 
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
+
+const AdminApp = lazy(() => import("./admin/AdminApp"));
 
 function MainPageContent() {
   useReveal();
@@ -75,11 +77,14 @@ function MainPageContent() {
 export default function App() {
   return (
     <AppProvider>
-      <Routes>
-        <Route path="/" element={<MainPageContent />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<MainPageContent />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin/*" element={<AdminApp />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </AppProvider>
   );
 }

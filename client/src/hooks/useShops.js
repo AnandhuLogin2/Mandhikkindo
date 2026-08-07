@@ -1,5 +1,7 @@
-import { useMemo } from "react";
-import shopsRaw from "../data/shops.json";
+import { useEffect, useState, useMemo } from "react";
+import { subscribeShops } from "../services/shopService";
+import { getDistricts } from "../services/districtService";
+import shopsFallback from "../data/shops.json";
 
 const CATEGORY_ICONS = {
   "Chicken Mandhi": "🍗",
@@ -7,15 +9,50 @@ const CATEGORY_ICONS = {
   "Beef Mandhi": "🥩",
   "Mutton Mandhi": "🍖",
   "Fish Mandhi": "🐟",
+  "Kuzhi Mandhi": "🍲",
 };
 
 export function useShops() {
-  return useMemo(() => {
-    const shops = shopsRaw;
-    const districts = [...new Set(shops.map((s) => s.district))].sort();
-    const categories = [...new Set(shops.flatMap((s) => s.types || []))].sort();
-    return { shops, districts, categories, categoryIcons: CATEGORY_ICONS };
+  const [shops, setShops] = useState(shopsFallback);
+  const [districtList, setDistrictList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let unsubscribe = () => {};
+
+    async function initData() {
+      try {
+        const dists = await getDistricts();
+        if (dists && dists.length > 0) {
+          setDistrictList(dists.map((d) => d.name));
+        }
+      } catch (err) {
+        console.warn("Districts init failed:", err);
+      }
+
+      unsubscribe = subscribeShops((liveShops) => {
+        if (liveShops && liveShops.length > 0) {
+          setShops(liveShops);
+        }
+        setLoading(false);
+      });
+    }
+
+    initData();
+
+    return () => unsubscribe();
   }, []);
+
+  const districts = useMemo(() => {
+    if (districtList.length > 0) return districtList.sort();
+    return [...new Set(shops.map((s) => s.district).filter(Boolean))].sort();
+  }, [shops, districtList]);
+
+  const categories = useMemo(() => {
+    return [...new Set(shops.flatMap((s) => s.types || s.selectedTypes || []).filter(Boolean))].sort();
+  }, [shops]);
+
+  return { shops, districts, categories, categoryIcons: CATEGORY_ICONS, loading };
 }
 
 export function haversineKm(a, b) {

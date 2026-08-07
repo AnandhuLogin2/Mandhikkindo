@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import { useShops } from "../hooks/useShops";
+import { getSiteSettings } from "../services/siteSettingsService";
 import "./AiBuddyDrawer.css";
 
 const MANDHI_FACTS = [
@@ -14,6 +15,7 @@ const MANDHI_FACTS = [
 export default function AiBuddyDrawer() {
   const { aiOpen, setAiOpen, openShopDetail } = useApp();
   const { shops } = useShops();
+  const [siteConfig, setSiteConfig] = useState(null);
   const [messages, setMessages] = useState([
     {
       id: "init",
@@ -23,6 +25,18 @@ export default function AiBuddyDrawer() {
   ]);
   const [input, setInput] = useState("");
   const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    async function loadConfig() {
+      try {
+        const conf = await getSiteSettings();
+        setSiteConfig(conf);
+      } catch (err) {
+        console.warn("AiBuddy config load failed:", err);
+      }
+    }
+    loadConfig();
+  }, []);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });

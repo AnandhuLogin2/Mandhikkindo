@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
+import { getSiteSettings } from "../services/siteSettingsService";
 import "./Footer.css";
 
 export default function Footer() {
   const { showToast } = useApp();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [settings, setSettings] = useState(null);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const conf = await getSiteSettings();
+        setSettings(conf);
+      } catch (err) {
+        console.warn("Footer settings load error:", err);
+      }
+    }
+    loadData();
+  }, []);
 
   const submit = (e) => {
     e.preventDefault();
@@ -21,13 +35,13 @@ export default function Footer() {
         <div className="footer-brand">
           <a href="#top" className="nav-logo">
             <span className="logo-mark">灼</span>
-            <span className="logo-word">Mandhikkindo</span>
+            <span className="logo-word">{settings?.siteName || "Mandhikkindo"}</span>
           </a>
-          <p className="footer-tagline">Kerala's Mandhi finder, one pit at a time.</p>
+          <p className="footer-tagline">{settings?.tagline || "Kerala's Mandhi finder, one pit at a time."}</p>
           <div className="social-row">
-            <a href="#" aria-label="Instagram" className="social-btn">◎</a>
-            <a href="#" aria-label="Facebook" className="social-btn">f</a>
-            <a href="#" aria-label="WhatsApp" className="social-btn">✆</a>
+            <a href={settings?.instagramLink || "#"} aria-label="Instagram" className="social-btn">◎</a>
+            <a href={settings?.facebookLink || "#"} aria-label="Facebook" className="social-btn">f</a>
+            <a href={`tel:${settings?.contactPhone || "+919876543210"}`} aria-label="WhatsApp" className="social-btn">✆</a>
           </div>
         </div>
 

@@ -1,53 +1,16 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useShops } from "../hooks/useShops";
 import { useApp } from "../context/AppContext";
 import { useAuth } from "../context/AuthContext";
 import { useCommunity } from "../hooks/useCommunity";
+import { subscribeQuizQuestions, saveQuizAttemptResult } from "../services/quizService";
 import "./QuizSection.css";
-
-const BASE_QUESTIONS = [
-  {
-    key: "protein",
-    text: "Chicken, Beef, Mutton or Fish?",
-    options: [
-      { label: "Chicken", value: "Chicken Mandhi" },
-      { label: "Beef", value: "Beef Mandhi" },
-      { label: "Mutton", value: "Mutton Mandhi" },
-      { label: "Fish", value: "Fish Mandhi" },
-    ],
-  },
-  {
-    key: "spice",
-    text: "Spicy or Mild?",
-    options: [
-      { label: "Bring the heat", value: "spicy" },
-      { label: "Keep it mild", value: "mild" },
-    ],
-  },
-  {
-    key: "budget",
-    text: "Budget bite or Premium plate?",
-    options: [
-      { label: "Budget", value: "budget" },
-      { label: "Premium", value: "premium" },
-    ],
-  },
-  {
-    key: "crowd",
-    text: "Dining solo, with family, or with friends?",
-    options: [
-      { label: "Solo", value: "solo" },
-      { label: "Family", value: "family" },
-      { label: "Friends", value: "friends" },
-    ],
-  },
-];
 
 function computeMatches(shops, answers) {
   let list = [...shops];
   if (answers.protein) {
-    const withProtein = list.filter((s) => (s.types || []).includes(answers.protein));
+    const withProtein = list.filter((s) => (s.types || s.selectedTypes || []).includes(answers.protein));
     if (withProtein.length) list = withProtein;
   }
   if (answers.district && answers.district !== "any") {
@@ -55,13 +18,13 @@ function computeMatches(shops, answers) {
     if (inDistrict.length) list = inDistrict;
   }
   if (answers.crowd === "family" || answers.crowd === "friends") {
-    list = [...list].sort((a, b) => b.reviews - a.reviews);
+    list = [...list].sort((a, b) => (b.reviews || 0) - (a.reviews || 0));
   } else if (answers.budget === "premium") {
-    list = [...list].sort((a, b) => b.rating - a.rating);
+    list = [...list].sort((a, b) => (b.rating || 0) - (a.rating || 0));
   } else if (answers.budget === "budget") {
-    list = [...list].sort((a, b) => a.reviews - b.reviews || b.rating - a.rating);
+    list = [...list].sort((a, b) => (a.reviews || 0) - (b.reviews || 0) || (b.rating || 0) - (a.rating || 0));
   } else {
-    list = [...list].sort((a, b) => b.rating - a.rating);
+    list = [...list].sort((a, b) => (b.rating || 0) - (a.rating || 0));
   }
   return list.slice(0, 3);
 }
@@ -70,13 +33,53 @@ export default function QuizSection() {
   const { shops, districts } = useShops();
   const { openCommunity, openShopDetail, playSizzle } = useApp();
   const { user } = useAuth();
-  const { groups } = useCommunity(shops);
+  const { groups } = useCommunity();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const questions = useMemo(
-    () => [
-      ...BASE_QUESTIONS,
+  const [dbQuestions, setDbQuestions] = useState([]);
+
+  useEffect(() => {
+    const unsub = subscribeQuizQuestions((items) => {
+      if (items && items.length > 0) {
+        setDbQuestions(items);
+      }
+    });
+    return () => unsub();
+  }, []);
+
+  const questions = useMemo(() => {
+    const base = dbQuestions.length > 0 ? dbQuestions : [
+      {
+        key: "protein",
+        text: "Chicken, Beef, Mutton or Fish?",
+        options: [
+          { label: "Chicken", value: "Chicken Mandhi" },
+          { label: "Beef", value: "Beef Mandhi" },
+          { label: "Mutton", value: "Mutton Mandhi" },
+          { label: "Fish", value: "Fish Mandhi" },
+        ],
+      },
+      {
+        key: "spice",
+        text: "Spicy or Mild?",
+        options: [
+          { label: "Bring the heat", value: "spicy" },
+          { label: "Keep it mild", value: "mild" },
+        ],
+      },
+      {
+        key: "budget",
+        text: "Budget bite or Premium plate?",
+        options: [
+          { label: "Budget", value: "budget" },
+          { label: "Premium", value: "premium" },
+        ],
+      },
+    ];
+
+    return [
+      ...base,
       {
         key: "district",
         text: "Which district are you in?",
@@ -85,9 +88,8 @@ export default function QuizSection() {
           { label: "Surprise me", value: "any" },
         ],
       },
-    ],
-    [districts]
-  );
+    ];
+  }, [dbQuestions, districts]);
 
   const [stage, setStage] = useState("intro"); // intro | questions | results
   const [step, setStep] = useState(0);
@@ -99,14 +101,22 @@ export default function QuizSection() {
     setStage("questions");
   };
 
+  const finishQuiz = (finalAnswers) => {
+    setStage("results");
+    playSizzle();
+    saveQuizAttemptResult({ answers: finalAnswers }, user).catch((err) => {
+      console.warn("Could not save quiz attempt:", err);
+    });
+  };
+
   const pick = (key, value) => {
-    setAnswers((a) => ({ ...a, [key]: value }));
+    const nextAnswers = { ...answers, [key]: value };
+    setAnswers(nextAnswers);
     setTimeout(() => {
       if (step < questions.length - 1) {
         setStep((s) => s + 1);
       } else {
-        setStage("results");
-        playSizzle();
+        finishQuiz(nextAnswers);
       }
     }, 220);
   };

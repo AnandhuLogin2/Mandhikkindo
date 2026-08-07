@@ -3,18 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useShops } from "../hooks/useShops";
 import { useAuth } from "../context/AuthContext";
 import { useApp } from "../context/AppContext";
-import { api } from "../lib/api";
+import { subscribeReviews, addReview } from "../services/reviewService";
 import "./ReviewsSection.css";
-
-const STATIC_TEXTS = [
-  "The rice alone is worth the drive. Meat fell right off the bone.",
-  "Portion sizes are unreal — came for lunch, left with dinner too.",
-  "Best mandhi I've had outside of a Gulf trip, honestly.",
-  "Service was quick even on a packed Sunday afternoon.",
-  "The smoky pit flavour actually comes through — rare these days.",
-  "Family of six, everyone had a different favourite. That says it all.",
-];
-const STATIC_NAMES = ["Anoop", "Fathima", "Rahul", "Meera", "Sabith", "Aleena"];
 
 export default function ReviewsSection() {
   const { shops } = useShops();
@@ -28,7 +18,16 @@ export default function ReviewsSection() {
   const [rating, setRating] = useState(5);
   const [text, setText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [reviewsList, setReviewsList] = useState([]);
+  const [firestoreReviews, setFirestoreReviews] = useState([]);
+
+  useEffect(() => {
+    const unsub = subscribeReviews((items) => {
+      if (items && items.length > 0) {
+        setFirestoreReviews(items);
+      }
+    });
+    return () => unsub();
+  }, []);
 
   useEffect(() => {
     if (shops.length && !selectedShopId) {
@@ -36,20 +35,18 @@ export default function ReviewsSection() {
     }
   }, [shops, selectedShopId]);
 
-  const defaultReviews = useMemo(() => {
-    const picks = [...shops].sort((a, b) => b.reviews - a.reviews).slice(0, 6);
-    return picks.map((shop, i) => ({
-      initial: shop.name.charAt(0),
-      name: STATIC_NAMES[i % STATIC_NAMES.length],
-      text: STATIC_TEXTS[i % STATIC_TEXTS.length],
-      shop: shop.name,
-      rating: Math.max(4, Math.round(shop.rating)),
-    }));
-  }, [shops]);
-
   const allReviews = useMemo(() => {
-    return [...reviewsList, ...defaultReviews];
-  }, [reviewsList, defaultReviews]);
+    if (firestoreReviews.length > 0) {
+      return firestoreReviews.map((r) => ({
+        initial: (r.userName || r.userEmail || "C").charAt(0).toUpperCase(),
+        name: r.userName || r.userEmail || "Customer",
+        text: r.comment || r.text || "Great Mandhi experience!",
+        shop: r.shopName || "Mandhi Spot",
+        rating: Math.max(1, Math.min(5, Math.round(r.rating || 5))),
+      }));
+    }
+    return [];
+  }, [firestoreReviews]);
 
   const [idx, setIdx] = useState(0);
   const total = allReviews.length;
@@ -82,28 +79,19 @@ export default function ReviewsSection() {
 
     try {
       setIsSubmitting(true);
-      const res = await api.post(
-        "/api/reviews",
-        {
-          shopId: selectedShopId,
-          rating: Number(rating),
-          text: text.trim(),
-        },
-        user
-      );
-
       const targetShop = shops.find((s) => s.id === selectedShopId);
-      const newReviewCard = {
-        initial: (user.displayName || user.email || "U").charAt(0).toUpperCase(),
-        name: user.displayName || user.email || "Verified Eater",
-        text: text.trim(),
-        shop: targetShop ? targetShop.name : "Mandhi Shop",
-        rating: Number(rating),
-      };
 
-      setReviewsList((prev) => [newReviewCard, ...prev]);
+      await addReview({
+        shopId: selectedShopId,
+        shopName: targetShop ? targetShop.name || targetShop.shopName : "Mandhi Spot",
+        userName: user.displayName || user.email || "Customer",
+        userEmail: user.email || "",
+        rating: Number(rating),
+        comment: text.trim(),
+      });
+
       setText("");
-      showToast("Review submitted successfully! Thank you 🙌");
+      showToast("Review submitted successfully to Firestore! Thank you 🙌");
     } catch (err) {
       console.error("Submit review failed:", err);
       showToast(err.message || "Failed to submit review.");
