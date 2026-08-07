@@ -1,24 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    
-    // Helper function to check if user is an admin
-    function isAdmin() {
-      return request.auth != null && 
-        (
-          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
-          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true
-        );
-    }
 
-    // Helper function to check if user is authenticated
     function isAuthenticated() {
       return request.auth != null;
-    }
-
-    // Helper function to check if user is owner
-    function isOwner(userId) {
-      return request.auth != null && request.auth.uid == userId;
     }
 
     // Users Collection
@@ -26,7 +11,7 @@ service cloud.firestore {
       allow read, write: if isAuthenticated();
     }
 
-    // Public catalog collections — public read, authenticated/admin write
+    // Public catalog collections — public read, authenticated write
     match /mandhi_shops/{docId} {
       allow read: if true;
       allow write: if isAuthenticated();
@@ -101,7 +86,7 @@ service cloud.firestore {
       allow write: if isAuthenticated();
     }
 
-    // Fallback catch-all for system audit
+    // Catch-all for all other collections
     match /{document=**} {
       allow read, write: if isAuthenticated();
     }
