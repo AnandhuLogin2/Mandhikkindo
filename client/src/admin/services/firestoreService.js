@@ -7,10 +7,6 @@ import {
   updateDoc,
   deleteDoc,
   query,
-  where,
-  orderBy,
-  limit,
-  startAfter,
   serverTimestamp,
   onSnapshot,
   setDoc
@@ -25,13 +21,18 @@ export const fetchCollection = async (collectionName, queryConstraints = []) => 
     const snapshot = await getDocs(q);
     return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   } catch (error) {
-    console.warn(`Fetch ${collectionName} constrained query warning:`, error.message);
     if (queryConstraints.length > 0) {
       try {
         const fallbackSnap = await getDocs(colRef);
-        return fallbackSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const items = fallbackSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        items.sort((a, b) => {
+          const tA = a.createdAt?.seconds || (typeof a.createdAt === 'number' ? a.createdAt : 0);
+          const tB = b.createdAt?.seconds || (typeof b.createdAt === 'number' ? b.createdAt : 0);
+          return tB - tA;
+        });
+        return items;
       } catch (fallbackError) {
-        console.warn(`Fetch ${collectionName} unconstrained fallback warning:`, fallbackError.message);
+        console.warn(`Fetch ${collectionName} note:`, fallbackError.message);
       }
     }
     return [];
@@ -47,7 +48,7 @@ export const fetchDocument = async (collectionName, id) => {
     }
     return null;
   } catch (error) {
-    console.warn(`Error fetching document ${id} from ${collectionName}:`, error.message);
+    console.warn(`Fetch document ${id} note:`, error.message);
     return null;
   }
 };
@@ -107,7 +108,7 @@ export const subscribeToCollection = (collectionName, callback, queryConstraints
     const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     callback(items);
   }, (error) => {
-    console.warn(`Subscription warning on ${collectionName}:`, error.message);
+    console.warn(`Subscription note on ${collectionName}:`, error.message);
     callback([]);
   });
 };

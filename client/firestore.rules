@@ -6,89 +6,82 @@ service cloud.firestore {
       return request.auth != null;
     }
 
-    // Users Collection
-    match /users/{userId} {
-      allow read, write: if isAuthenticated();
+    match /users/{docId} {
+      allow read, list, create, update, delete, write: if isAuthenticated();
     }
 
-    // Public catalog collections — public read, authenticated write
     match /mandhi_shops/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /districts/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /categories/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /mandhi_types/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /reviews/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /gallery/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /quiz_questions/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /quiz_results/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /communities/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /community_members/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /community_messages/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /notifications/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
     match /site_settings/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
-    match /favorites/{docId} {
-      allow read, write: if isAuthenticated();
+    match /ai_conversations/{docId} {
+      allow read, list: if true;
+      allow write, create, update, delete: if isAuthenticated();
     }
 
-    match /shop_images/{docId} {
-      allow read: if true;
-      allow write: if isAuthenticated();
-    }
-
-    // Catch-all for all other collections
     match /{document=**} {
-      allow read, write: if isAuthenticated();
+      allow read, list, create, update, delete, write: if isAuthenticated();
     }
   }
 }
