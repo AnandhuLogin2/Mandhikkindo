@@ -13,7 +13,7 @@ export function AdminAuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const adminCheck = await checkIsAdmin(user.uid);
+        const adminCheck = await checkIsAdmin(user.uid, user.email, user.displayName);
         if (adminCheck) {
           setAdminUser(user);
           setIsAdmin(true);

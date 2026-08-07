@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
 
 /**
- * Universal fetch wrapper targeting Mandhikkindo Express backend.
+ * Universal fetch wrapper targeting Mandhikkindo Express backend with token refresh support.
  * @param {string} endpoint - API path (e.g. '/api/shops')
  * @param {object} options - Fetch options (method, headers, body)
  * @param {object|null} user - Firebase user object if authenticated
@@ -12,7 +12,7 @@ export async function apiFetch(endpoint, options = {}, user = null) {
     ...options.headers,
   };
 
-  if (user) {
+  if (user && typeof user.getIdToken === "function") {
     try {
       const idToken = await user.getIdToken();
       headers["Authorization"] = `Bearer ${idToken}`;
@@ -23,10 +23,24 @@ export async function apiFetch(endpoint, options = {}, user = null) {
 
   const url = endpoint.startsWith("http") ? endpoint : `${API_BASE_URL}${endpoint}`;
 
-  const response = await fetch(url, {
+  let response = await fetch(url, {
     ...options,
     headers,
   });
+
+  // Automatic token refresh retry if 401 Unauthorized occurs and user is present
+  if (response.status === 401 && user && typeof user.getIdToken === "function") {
+    try {
+      const refreshedToken = await user.getIdToken(true);
+      headers["Authorization"] = `Bearer ${refreshedToken}`;
+      response = await fetch(url, {
+        ...options,
+        headers,
+      });
+    } catch (refreshErr) {
+      console.warn("Token refresh attempt failed:", refreshErr.message);
+    }
+  }
 
   const data = await response.json().catch(() => ({}));
 
