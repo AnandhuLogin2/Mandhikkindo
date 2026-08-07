@@ -1,41 +1,66 @@
 import { db, admin } from '../config/firebase.js';
 
 export const collections = {
-  users: () => db.collection('users'),
-  shops: () => db.collection('shops'),
-  groups: () => db.collection('groups'),
-  reviews: () => db.collection('reviews'),
-  messages: (groupId) => db.collection('groups').doc(groupId).collection('messages'),
+  users: () => db?.collection('users'),
+  shops: () => db?.collection('shops'),
+  groups: () => db?.collection('groups'),
+  reviews: () => db?.collection('reviews'),
+  messages: (groupId) => db?.collection('groups').doc(groupId).collection('messages'),
 };
 
 /**
  * Upsert user profile on authentication session bootstrap
  */
 export const upsertUser = async (user) => {
-  const userRef = collections.users().doc(user.uid);
-  const doc = await userRef.get();
-  const now = admin.firestore.FieldValue.serverTimestamp();
-
-  if (!doc.exists) {
-    const newUser = {
+  if (!db) {
+    console.warn("Firestore db instance is unavailable. Returning in-memory session user profile.");
+    return {
       uid: user.uid,
       displayName: user.name || 'User',
       email: user.email || '',
       photoURL: user.photoURL || '',
-      createdAt: now,
-      updatedAt: now,
+      role: user.admin ? 'admin' : 'user',
     };
-    await userRef.set(newUser);
-    return { ...newUser, createdAt: new Date(), updatedAt: new Date() };
-  } else {
-    const updateData = {
-      displayName: user.name || doc.data().displayName,
-      email: user.email || doc.data().email,
-      photoURL: user.photoURL || doc.data().photoURL,
-      updatedAt: now,
+  }
+
+  try {
+    const userRef = collections.users().doc(user.uid);
+    const doc = await userRef.get();
+    const now = admin?.firestore?.FieldValue ? admin.firestore.FieldValue.serverTimestamp() : new Date();
+
+    if (!doc.exists) {
+      const newUser = {
+        uid: user.uid,
+        displayName: user.name || 'User',
+        email: user.email || '',
+        photoURL: user.photoURL || '',
+        role: user.admin ? 'admin' : 'user',
+        status: 'active',
+        createdAt: now,
+        updatedAt: now,
+      };
+      await userRef.set(newUser);
+      return { ...newUser, createdAt: new Date(), updatedAt: new Date() };
+    } else {
+      const existing = doc.data();
+      const updateData = {
+        displayName: user.name || existing.displayName || 'User',
+        email: user.email || existing.email || '',
+        photoURL: user.photoURL || existing.photoURL || '',
+        updatedAt: now,
+      };
+      await userRef.update(updateData);
+      return { ...existing, ...updateData };
+    }
+  } catch (err) {
+    console.warn("upsertUser Firestore operation warning:", err.message);
+    return {
+      uid: user.uid,
+      displayName: user.name || 'User',
+      email: user.email || '',
+      photoURL: user.photoURL || '',
+      role: user.admin ? 'admin' : 'user',
     };
-    await userRef.update(updateData);
-    return { ...doc.data(), ...updateData };
   }
 };
 
@@ -43,9 +68,15 @@ export const upsertUser = async (user) => {
  * Fetch user profile by UID
  */
 export const getUserById = async (uid) => {
-  const doc = await collections.users().doc(uid).get();
-  if (!doc.exists) return null;
-  return { id: doc.id, ...doc.data() };
+  if (!db) return null;
+  try {
+    const doc = await collections.users().doc(uid).get();
+    if (!doc.exists) return null;
+    return { id: doc.id, ...doc.data() };
+  } catch (err) {
+    console.warn("getUserById warning:", err.message);
+    return null;
+  }
 };
 
 /**
