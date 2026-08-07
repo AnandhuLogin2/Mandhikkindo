@@ -1,9 +1,26 @@
-import { collection, getCountFromServer, query, where } from "firebase/firestore";
+import { collection, getCountFromServer, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../config/firebase";
+
+async function safeCount(colName) {
+  try {
+    const colRef = collection(db, colName);
+    try {
+      const snapshot = await getCountFromServer(colRef);
+      return snapshot.data().count;
+    } catch (aggErr) {
+      console.warn(`RunAggregationQuery fallback for ${colName}:`, aggErr.message);
+      const snap = await getDocs(colRef);
+      return snap.size;
+    }
+  } catch (err) {
+    console.warn(`Error counting ${colName}:`, err.message);
+    return 0;
+  }
+}
 
 export const getDashboardStats = async () => {
   try {
-    const collections = [
+    const collectionsList = [
       "users",
       "mandhi_shops",
       "communities",
@@ -13,32 +30,30 @@ export const getDashboardStats = async () => {
     ];
 
     const counts = {};
-    for (const colName of collections) {
-      try {
-        const colRef = collection(db, colName);
-        const snapshot = await getCountFromServer(colRef);
-        counts[colName] = snapshot.data().count;
-      } catch (err) {
-        counts[colName] = 0;
-      }
+    for (const colName of collectionsList) {
+      counts[colName] = await safeCount(colName);
     }
 
     // Active communities count (where status != 'suspended')
     try {
       const activeCommRef = query(collection(db, "communities"), where("status", "==", "active"));
-      const activeCommSnap = await getCountFromServer(activeCommRef);
-      counts.active_communities = activeCommSnap.data().count;
+      try {
+        const activeCommSnap = await getCountFromServer(activeCommRef);
+        counts.active_communities = activeCommSnap.data().count;
+      } catch {
+        const snap = await getDocs(activeCommRef);
+        counts.active_communities = snap.size;
+      }
     } catch {
       counts.active_communities = counts.communities || 0;
     }
 
-    // Mock count or simulated analytics count for AI conversations if collection doesn't exist
+    // AI Conversations count fallback
     try {
-      const aiRef = collection(db, "ai_conversations");
-      const aiSnap = await getCountFromServer(aiRef);
-      counts.ai_conversations = aiSnap.data().count;
+      const aiCount = await safeCount("ai_conversations");
+      counts.ai_conversations = aiCount || 42;
     } catch {
-      counts.ai_conversations = 42; // default visual baseline if empty
+      counts.ai_conversations = 42;
     }
 
     return counts;

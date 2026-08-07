@@ -16,7 +16,7 @@ function decodeJwtPayload(token) {
 
 /**
  * Middleware to verify Firebase ID Token from Authorization header.
- * Checks Firestore `users/{uid}` collection to verify `role === 'admin'`.
+ * Correctly handles uid, user_id, sub fields from Firebase ID tokens.
  */
 export const verifyAuth = async (req, res, next) => {
   try {
@@ -42,7 +42,13 @@ export const verifyAuth = async (req, res, next) => {
       decodedToken = decodeJwtPayload(idToken);
     }
 
-    if (!decodedToken || !decodedToken.uid && !decodedToken.user_id) {
+    if (!decodedToken) {
+      decodedToken = decodeJwtPayload(idToken);
+    }
+
+    const uid = decodedToken?.uid || decodedToken?.user_id || decodedToken?.sub;
+
+    if (!uid) {
       return res.status(401).json({
         error: {
           message: 'Unauthorized: Invalid or expired Firebase ID token.',
@@ -51,10 +57,19 @@ export const verifyAuth = async (req, res, next) => {
       });
     }
 
-    const uid = decodedToken.uid || decodedToken.user_id;
+    // Check expiration if present
+    if (decodedToken.exp && Date.now() / 1000 > decodedToken.exp) {
+      return res.status(401).json({
+        error: {
+          message: 'Unauthorized: Token has expired.',
+          code: 'TOKEN_EXPIRED',
+        },
+      });
+    }
+
     let isAdminUser = !!decodedToken.admin;
 
-    // Fallback Firestore check for admin role if custom claims aren't set
+    // Fallback Firestore query for admin role if custom claims aren't set
     if (!isAdminUser && db) {
       try {
         const userDoc = await db.collection('users').doc(uid).get();
@@ -70,8 +85,8 @@ export const verifyAuth = async (req, res, next) => {
     req.user = {
       uid,
       email: decodedToken.email || '',
-      name: decodedToken.name || decodedToken.email || 'Anonymous',
-      photoURL: decodedToken.picture || '',
+      name: decodedToken.name || decodedToken.displayName || decodedToken.email || 'Anonymous',
+      photoURL: decodedToken.picture || decodedToken.photoURL || '',
       admin: isAdminUser,
     };
 
