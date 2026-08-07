@@ -5,15 +5,13 @@ async function safeCount(colName) {
   try {
     const colRef = collection(db, colName);
     try {
-      const snapshot = await getCountFromServer(colRef);
-      return snapshot.data().count;
-    } catch (aggErr) {
-      console.warn(`RunAggregationQuery fallback for ${colName}:`, aggErr.message);
       const snap = await getDocs(colRef);
       return snap.size;
+    } catch {
+      const snapshot = await getCountFromServer(colRef);
+      return snapshot.data().count;
     }
-  } catch (err) {
-    console.warn(`Error counting ${colName}:`, err.message);
+  } catch {
     return 0;
   }
 }
@@ -34,15 +32,15 @@ export const getDashboardStats = async () => {
       counts[colName] = await safeCount(colName);
     }
 
-    // Active communities count (where status != 'suspended')
+    // Active communities count (where status == 'active')
     try {
       const activeCommRef = query(collection(db, "communities"), where("status", "==", "active"));
       try {
-        const activeCommSnap = await getCountFromServer(activeCommRef);
-        counts.active_communities = activeCommSnap.data().count;
-      } catch {
         const snap = await getDocs(activeCommRef);
         counts.active_communities = snap.size;
+      } catch {
+        const activeCommSnap = await getCountFromServer(activeCommRef);
+        counts.active_communities = activeCommSnap.data().count;
       }
     } catch {
       counts.active_communities = counts.communities || 0;
