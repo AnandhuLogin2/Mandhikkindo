@@ -3,6 +3,7 @@ import config from './env.js';
 
 let db = null;
 let auth = null;
+let rtdb = null;
 
 try {
   if (!admin.apps.length) {
@@ -18,6 +19,7 @@ try {
           clientEmail: config.firebase.clientEmail,
           privateKey: config.firebase.privateKey,
         }),
+        databaseURL: config.firebase.databaseURL,
       });
       console.log('⚡ Firebase Admin initialized successfully with credentials.');
     } else {
@@ -33,6 +35,11 @@ try {
 
   db = admin.firestore();
   auth = admin.auth();
+  try {
+    rtdb = admin.database();
+  } catch (_e) {
+    // Optional if RTDB isn't enabled
+  }
 } catch (error) {
   console.error('❌ Failed to initialize Firebase Admin SDK:', error.message);
   // Ensure fallback app initialization if previous cert attempt threw an error
@@ -40,6 +47,7 @@ try {
     if (!admin.apps.length) {
       admin.initializeApp({
         projectId: config.firebase.projectId || 'mandhikkindo',
+        databaseURL: config.firebase.databaseURL,
       });
     }
     db = admin.firestore();
@@ -50,4 +58,4 @@ try {
   }
 }
 
-export { admin, db, auth };
+export { admin, db, auth, rtdb };

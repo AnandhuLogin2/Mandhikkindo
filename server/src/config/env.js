@@ -17,6 +17,8 @@ const config = {
     privateKey: process.env.FIREBASE_PRIVATE_KEY
       ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
       : '',
+    databaseURL: process.env.FIREBASE_DATABASE_URL || 'https://mandhikkindo-default-rtdb.firebaseio.com',
+    rtdbSecret: process.env.FIREBASE_RTDB_SECRET || '',
   },
   isProd: process.env.NODE_ENV === 'production',
 };
