@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import { api } from "../lib/api";
 import { useAuth } from "../context/AuthContext";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
 
 export function useCommunity(shops = []) {
   const { user } = useAuth();
@@ -36,11 +36,11 @@ export function useCommunity(shops = []) {
 
   // Socket.io initialization when user is authenticated
   useEffect(() => {
-    if (!user) return;
+    if (!user || !SOCKET_URL) return;
 
     let socket;
     user.getIdToken().then((token) => {
-      socket = io(API_BASE_URL, {
+      socket = io(SOCKET_URL, {
         auth: { token },
         transports: ["websocket", "polling"],
       });
@@ -139,19 +139,7 @@ export function useCommunity(shops = []) {
       if (socketRef.current && socketRef.current.connected) {
         socketRef.current.emit("group:message", { groupId, text });
       } else {
-        // Fallback local state if socket not ready
-        const localMsg = {
-          id: `msg-${Date.now()}`,
-          groupId,
-          text,
-          authorUid: user.uid,
-          authorName: user.displayName || "You",
-          createdAt: new Date().toISOString(),
-        };
-        setMessages((prev) => ({
-          ...prev,
-          [groupId]: [...(prev[groupId] || []), localMsg],
-        }));
+        throw new Error("Chat is currently unavailable. Please try again later.");
       }
     },
     [user]

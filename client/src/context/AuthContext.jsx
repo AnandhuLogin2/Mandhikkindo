@@ -23,6 +23,10 @@ export function AuthProvider({ children }) {
   };
 
   useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
@@ -38,6 +42,7 @@ export function AuthProvider({ children }) {
 
   const signInWithGoogle = useCallback(async () => {
     try {
+      if (!auth) throw new Error("Sign-in is not configured yet. Please contact the site owner.");
       const result = await signInWithPopup(auth, googleProvider);
       if (result.user) {
         await syncBackendSession(result.user);
@@ -51,7 +56,7 @@ export function AuthProvider({ children }) {
 
   const signOut = useCallback(async () => {
     try {
-      await firebaseSignOut(auth);
+      if (auth) await firebaseSignOut(auth);
       setUser(null);
       setProfile(null);
     } catch (error) {

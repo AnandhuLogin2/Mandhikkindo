@@ -120,7 +120,9 @@ export default function CommunityModal() {
             }}
             onSend={(text) => {
               requireAuthAndAct(() => {
-                addMessage(detailGroup.id, text);
+                addMessage(detailGroup.id, text).catch((err) => {
+                  showToast(err.message || "Failed to send message.");
+                });
               }, "Sign in to chat with group members");
             }}
           />

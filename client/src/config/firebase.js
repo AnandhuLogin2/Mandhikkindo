@@ -10,7 +10,9 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+// Public browsing remains available before sign-in is configured.
+const configured = firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId;
+const app = configured ? initializeApp(firebaseConfig) : null;
 
-export const auth = getAuth(app);
+export const auth = app ? getAuth(app) : null;
 export const googleProvider = new GoogleAuthProvider();

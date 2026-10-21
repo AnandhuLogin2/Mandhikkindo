@@ -8,17 +8,21 @@ const __dirname = path.dirname(__filename);
 // Load .env from server root directory
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
+const readEnv = (name) => globalThis.Netlify?.env
+  ? globalThis.Netlify.env.get(name)
+  : process.env[name];
+
 const config = {
-  port: parseInt(process.env.PORT || '4000', 10),
-  clientOrigin: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
+  port: parseInt(readEnv('PORT') || '4000', 10),
+  clientOrigin: readEnv('CLIENT_ORIGIN') || 'http://localhost:5173',
   firebase: {
-    projectId: process.env.FIREBASE_PROJECT_ID || '',
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL || '',
-    privateKey: process.env.FIREBASE_PRIVATE_KEY
-      ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    projectId: readEnv('FIREBASE_PROJECT_ID') || '',
+    clientEmail: readEnv('FIREBASE_CLIENT_EMAIL') || '',
+    privateKey: readEnv('FIREBASE_PRIVATE_KEY')
+      ? readEnv('FIREBASE_PRIVATE_KEY').replace(/\\n/g, '\n')
       : '',
   },
-  isProd: process.env.NODE_ENV === 'production',
+  isProd: readEnv('NODE_ENV') === 'production',
 };
 
 export default config;

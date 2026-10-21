@@ -51,6 +51,19 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Report missing deployment configuration instead of waiting for failed credentials.
+app.use('/api', (req, res, next) => {
+  if (!config.firebase.projectId || !config.firebase.clientEmail || !config.firebase.privateKey) {
+    return res.status(503).json({
+      error: {
+        message: 'The API is not configured. The site owner must configure Firebase server credentials.',
+        code: 'SERVICE_NOT_CONFIGURED',
+      },
+    });
+  }
+  next();
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/shops', shopsRoutes);
