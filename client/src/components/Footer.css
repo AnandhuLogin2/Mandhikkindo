@@ -1,60 +1,517 @@
-.site-footer{
-  background: var(--primary);
-  color: var(--text);
-  border-top: 1px solid var(--border-soft);
-  padding: 72px clamp(20px,5vw,64px) 28px;
-}
-html[data-theme="light"] .site-footer{ background: #0F172A; color: #FFFFFF; }
+/* =========================================================================
+   MANDHIKKINDO — EXACT REFERENCE FOOTER REDESIGN (BREAVER STUDIOS)
+   Structure:
+   - Outer Container: #242424 with thin inset card border
+   - Upper Section: #111111 with exact continuous orange flame silhouette
+   - Center Visual: Real authentic Chicken Mandhi food photograph
+   - Lower Section: Solid #F97316 orange surface
+   - Three Columns: Navigation (left), Say Hi! CTA (center), Social & Copyright (right)
+   - Bottom: Oversized bold black MANDHIKKINDO wordmark
+   ========================================================================= */
 
-.footer-top{
-  max-width:1320px; margin:0 auto;
-  display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1.4fr;
-  gap:40px;
-  padding-bottom:48px;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.footer-brand .nav-logo{ color:#FFFFFF; margin-bottom:14px; }
-.footer-tagline{ color:var(--text-muted); font-size:14px; margin-bottom:18px; line-height: 1.6; }
-.social-row{ display:flex; gap:10px; }
-.social-btn{
-  width:38px; height:38px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  transition:all .25s;
-}
-.social-btn:hover{ background:var(--grad-1); color:#FFFFFF; border-color: transparent; transform: translateY(-2px); }
-
-.footer-col h4{ font-family: var(--font-display); font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--secondary); margin-bottom:16px; }
-.footer-col a{ display:block; color:var(--text-muted); font-size:14px; margin-bottom:12px; transition:color .2s; }
-.footer-col a:hover{ color: var(--secondary); }
-
-.newsletter p{ color:var(--text-muted); font-size:14px; margin-bottom:14px; }
-.newsletter-form{ display:flex; gap:8px; }
-.newsletter-form input{
-  flex:1; padding:11px 16px; border-radius:var(--radius-pill);
-  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15);
-  color:#FFFFFF; font-size:13.5px; outline:none;
-}
-.newsletter-form button{
-  width:42px; height:42px; border-radius:50%; border:none;
-  background:var(--grad-1); color:#FFFFFF; font-weight:800; flex-shrink:0; cursor: pointer;
-  box-shadow: 0 4px 14px rgba(249,115,22,0.4);
-}
-.newsletter-note{ margin-top:10px; font-size:12.5px; color:var(--success) !important; }
-
-.footer-bottom{
-  max-width:1320px; margin:0 auto;
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
-  padding-top:24px;
-  font-size:13px; color:var(--text-muted);
+/* 1. Outer Page Background */
+.site-footer-outer {
+  background: #242424;
+  padding: clamp(20px, 3.5vw, 44px) clamp(14px, 2.8vw, 44px);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (max-width:860px){
-  .footer-top{ grid-template-columns:1fr 1fr; }
+/* 2. Inset Card with Thin Border */
+.site-footer-card {
+  max-width: 1380px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111111;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
-@media (max-width:520px){
-  .footer-top{ grid-template-columns:1fr; }
+
+/* =========================================================================
+   UPPER SECTION: BLACK CANVAS, ORANGE FLAMES & REAL MANDHI PHOTOGRAPHY
+   ========================================================================= */
+.footer-upper-section {
+  background: #111111;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.footer-flame-stage {
+  position: relative;
+  width: 100%;
+  background: #111111;
+}
+
+.footer-upper-canvas {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  line-height: 0;
+}
+
+.footer-flame-svg {
+  width: 100%;
+  height: auto;
+  min-height: 190px;
+  max-height: 380px;
+  display: block;
+  margin-bottom: -1px; /* Seamless gapless join with the solid orange lower section */
+  overflow: visible;
+}
+
+/* Central Real Mandhi Food Photography Anchor */
+.footer-food-anchor {
+  position: absolute;
+  left: 50%;
+  bottom: -38px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.footer-food-platter {
+  width: clamp(210px, 20vw, 290px);
+  height: clamp(210px, 20vw, 290px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #1E293B;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75), 0 4px 14px rgba(0, 0, 0, 0.5);
+  background: #111111;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.footer-food-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.footer-food-platter:hover {
+  transform: scale(1.04);
+}
+
+.footer-food-platter:hover .footer-food-img {
+  transform: scale(1.06);
+}
+
+.footer-food-shadow {
+  width: 85%;
+  height: 18px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, transparent 75%);
+  margin-top: -8px;
+  border-radius: 50%;
+}
+
+/* =========================================================================
+   LOWER SECTION: SOLID ORANGE SURFACE (#F97316)
+   ========================================================================= */
+.footer-lower-section {
+  background: #F97316;
+  color: #111111;
+  position: relative;
+  width: 100%;
+  padding-top: clamp(48px, 5.5vw, 76px);
+  padding-bottom: 24px;
+}
+
+/* Three-Column Grid */
+.footer-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 56px);
+  align-items: start;
+}
+
+/* Headings */
+.footer-section-heading {
+  font-family: var(--font-display, "Poppins", sans-serif);
+  font-size: 16px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+/* ---- COLUMN 1: NAVIGATION ---- */
+.footer-col-nav {
+  text-align: left;
+}
+
+.footer-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-link {
+  color: #111111;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- COLUMN 2: CONTACT CTA (SAY HI!) ---- */
+.footer-col-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cta-heading {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.footer-cta-desc {
+  font-size: 14px;
+  color: #111111;
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto 16px;
+  font-weight: 500;
+}
+
+.cta-button-wrap {
+  margin-bottom: 14px;
+}
+
+.footer-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111111;
+  color: #F97316;
+  font-family: var(--font-display, "Poppins", sans-serif);
+  font-size: 14.5px;
+  font-weight: 800;
+  padding: 11px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-pill-btn:hover {
+  background: #000000;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38);
+}
+
+.footer-pill-btn:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 3px;
+}
+
+/* Compact newsletter row */
+.footer-newsletter-row {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.newsletter-expand-btn {
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #111111;
+  opacity: 0.8;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px 8px;
+}
+
+.newsletter-expand-btn:hover {
+  opacity: 1;
+}
+
+.footer-compact-newsletter {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-pill-input {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  color: #111111;
+  outline: none;
+  width: 170px;
+}
+
+.newsletter-pill-input::placeholder {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.newsletter-pill-submit {
+  border: none;
+  background: #111111;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.newsletter-confirm-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #064E3B;
+}
+
+/* ---- COLUMN 3: SOCIAL & COPYRIGHT ---- */
+.footer-col-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-social-icons-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.footer-black-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #111111;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-black-social-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.footer-black-social-btn:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  color: #FBBF24;
+}
+
+.footer-black-social-btn:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+.footer-copyright-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 10px;
+}
+
+.footer-badge-wrap {
+  margin-top: 2px;
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid #111111;
+  border-radius: 9999px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.01em;
+}
+
+.badge-flame {
+  font-size: 13px;
+}
+
+/* =========================================================================
+   OVERSIZED BOTTOM WORDMARK: MANDHIKKINDO
+   ========================================================================= */
+.footer-wordmark-bottom {
+  width: 100%;
+  overflow: hidden;
+  margin-top: clamp(24px, 4vw, 44px);
+  padding: 0 8px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.footer-giant-wordmark {
+  font-family: var(--font-display, "Poppins", "Arial Black", Impact, sans-serif);
+  font-size: clamp(2.8rem, 11.8vw, 12.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+  text-align: center;
+  color: #111111;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  display: block;
+  width: 100%;
+}
+
+/* =========================================================================
+   RESPONSIVE DESIGN (320px, 375px, 430px, 768px, 1024px, 1440px)
+   ========================================================================= */
+
+/* Tablet (<= 990px) */
+@media (max-width: 990px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .footer-col-social {
+    grid-column: span 2;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-food-platter {
+    width: clamp(200px, 22vw, 250px);
+    height: clamp(200px, 22vw, 250px);
+  }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .site-footer-outer {
+    padding: 16px 8px 24px;
+  }
+
+  .site-footer-card {
+    border-radius: 16px;
+  }
+
+  .footer-flame-svg {
+    min-height: 150px;
+  }
+
+  .footer-food-anchor {
+    bottom: -28px;
+  }
+
+  .footer-food-platter {
+    width: 190px;
+    height: 190px;
+  }
+
+  .footer-lower-section {
+    padding-top: 50px;
+    padding-bottom: 18px;
+  }
+
+  .footer-content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .footer-col-nav {
+    text-align: center;
+  }
+
+  .footer-nav-menu {
+    align-items: center;
+  }
+
+  .footer-col-social {
+    grid-column: span 1;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-social-icons-row {
+    justify-content: center;
+  }
+
+  .footer-giant-wordmark {
+    font-size: clamp(2.4rem, 11.2vw, 4.6rem);
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Compact Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .footer-food-platter {
+    width: 165px;
+    height: 165px;
+  }
+
+  .footer-food-anchor {
+    bottom: -24px;
+  }
+
+  .footer-lower-section {
+    padding-top: 42px;
+  }
+
+  .footer-pill-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .footer-giant-wordmark {
+    font-size: clamp(2.1rem, 11vw, 3.6rem);
+    line-height: 0.88;
+  }
+}
+
+/* Extra Small (<= 360px) */
+@media (max-width: 360px) {
+  .footer-giant-wordmark {
+    font-size: clamp(1.8rem, 10.8vw, 2.7rem);
+  }
 }

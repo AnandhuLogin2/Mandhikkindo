@@ -10,10 +10,13 @@ initSocketService(server);
 
 const PORT = config.port;
 
-server.listen(PORT, () => {
-  console.log(`🚀 Mandhikkindo server running on port ${PORT}`);
-  console.log(`🌐 Allowed Client Origin: ${config.clientOrigin}`);
-});
+// Start standalone HTTP listener when not running in Vercel serverless environment
+if (process.env.VERCEL !== '1') {
+  server.listen(PORT, () => {
+    console.log(`🚀 Mandhikkindo server running on port ${PORT}`);
+    console.log(`🌐 Allowed Client Origin: ${config.clientOrigin}`);
+  });
+}
 
 // Handle uncaught exceptions and rejections gracefully
 process.on('unhandledRejection', (reason, promise) => {
@@ -23,3 +26,5 @@ process.on('unhandledRejection', (reason, promise) => {
 process.on('uncaughtException', (err) => {
   console.error('Uncaught Exception thrown:', err);
 });
+
+export default app;

@@ -47,7 +47,7 @@ const apiLimiter = rateLimit({
 app.use('/api', apiLimiter);
 
 // API Healthcheck
-app.get('/health', (req, res) => {
+app.get(['/health', '/api/health'], (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
