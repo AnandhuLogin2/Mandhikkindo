@@ -18,3 +18,9 @@
 }
 .stat-plus{ font-size:20px; color:var(--saffron-400); font-weight:700; margin-top:2px; }
 .stat-label{ margin-top:10px; font-size:13.5px; color:var(--text-muted); font-weight:600; }
+
+/* Tighten bottom spacing before footer */
+.stats-section {
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+

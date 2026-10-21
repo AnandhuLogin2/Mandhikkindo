@@ -9,24 +9,26 @@
    - Bottom: Oversized bold black MANDHIKKINDO wordmark
    ========================================================================= */
 
-/* 1. Outer Page Background */
+/* 1. Outer Page Background — Transparent to integrate with site background */
 .site-footer-outer {
-  background: #242424;
-  padding: clamp(20px, 3.5vw, 44px) clamp(14px, 2.8vw, 44px);
+  background: transparent;
+  padding: 0;
+  margin: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* 2. Inset Card with Thin Border */
+/* 2. Full-Width Container (seamless integration without card frame) */
 .site-footer-card {
-  max-width: 1380px;
-  margin: 0 auto;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
-  background: #111111;
+  background: transparent;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: none;
 }
 
 /* =========================================================================
@@ -374,7 +376,8 @@
    OVERSIZED BOTTOM WORDMARK: MANDHIKKINDO
    ========================================================================= */
 .footer-wordmark-bottom {
-  width: 99%;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
   margin-top: clamp(24px, 4vw, 44px);
   padding: 0 8px 4px 2px;
@@ -428,11 +431,11 @@
 /* Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
   .site-footer-outer {
-    padding: 16px 8px 24px;
+    padding: 0;
   }
 
   .site-footer-card {
-    border-radius: 16px;
+    border-radius: 0;
   }
 
   .footer-flame-svg {
