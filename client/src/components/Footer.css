@@ -58,7 +58,8 @@
   min-height: 190px;
   max-height: 380px;
   display: block;
-  margin-bottom: -1px; /* Seamless gapless join with the solid orange lower section */
+  margin-bottom: -1px;
+  /* Seamless gapless join with the solid orange lower section */
   overflow: visible;
 }
 
@@ -373,10 +374,10 @@
    OVERSIZED BOTTOM WORDMARK: MANDHIKKINDO
    ========================================================================= */
 .footer-wordmark-bottom {
-  width: 100%;
+  width: 99%;
   overflow: hidden;
   margin-top: clamp(24px, 4vw, 44px);
-  padding: 0 8px 4px;
+  padding: 0 8px 4px 2px;
   display: flex;
   justify-content: center;
   align-items: center;
