@@ -32,10 +32,10 @@
 }
 
 /* =========================================================================
-   UPPER SECTION: BLACK CANVAS, ORANGE FLAMES & REAL MANDHI PHOTOGRAPHY
+   UPPER SECTION: ORANGE FLAMES & REAL MANDHI PHOTOGRAPHY (TRANSPARENT CANVAS)
    ========================================================================= */
 .footer-upper-section {
-  background: #111111;
+  background: transparent;
   position: relative;
   width: 100%;
   overflow: visible;
@@ -44,7 +44,7 @@
 .footer-flame-stage {
   position: relative;
   width: 100%;
-  background: #111111;
+  background: transparent;
 }
 
 .footer-upper-canvas {
